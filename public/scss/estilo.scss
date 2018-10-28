@@ -1,0 +1,419 @@
+@font-face
+{
+	font-family: "BlockLetter";
+	src: url("../fonts/blockletter.otf");
+}
+@font-face
+{
+	font-family: "Trump";
+	src: url("../fonts/trump_gothic_west.ttf");
+}
+
+$primaryFont 	: "Roboto";
+$secondaryFont 	: "BlockLetter";
+$tercFont 		: "Trump";
+
+$colorPrimary : #F1592A;
+$colorSecond  : #231F20;
+
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+.clear {clear: both;}
+
+a {
+	color: #444;
+	text-decoration: none;
+}
+
+.fondoLogin{
+
+	background-image: url('../img/login.jpg');
+	background-size: cover;
+	background-position: center;
+	height: 100vw;
+	position: relative;
+}
+
+.pagination {
+	text-align: center;
+	margin-top: 40px;
+
+	li {
+		display: inline-block;
+		background-color: white;
+		border: 1px solid #ddd;
+		border-radius: 1000px;
+		width: 40px;
+		height: 40px;
+		line-height: 40px;
+	}
+	li:hover {
+		border-color: #0088e8;
+	}
+	li:hover a {
+	}
+	.active {
+		background-color: #0088e8;
+		color: white;
+		border-color: #0088e8;
+	}
+}
+
+header {
+
+}
+
+footer {
+
+}
+
+// login
+#login {
+	background-image: url('../img/login/login.jpg');
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	height: 100vh;
+	width: 100%;
+
+	.content {
+		max-width: 1300px;
+		height: calc(100vh - 50px);
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+
+		@media (max-width: 900px) {
+			display: block;
+		}
+
+		.form {
+			background-color: white;
+			box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.05);
+			border-radius: 7px;
+			padding: 40px;
+			box-sizing: border-box;
+			width: 550px;
+			text-align: center;
+
+			img {
+				height: 80px;
+			}
+
+			form {
+				width: 85%;
+				margin: 0 auto;
+				margin-top: 20px;
+				color: #444444;
+
+				label {
+					span {
+						display: block;
+						text-align: left;
+						padding: 10px 0px 10px 0px;
+						font-weight: 600;
+					}
+					.error {
+						color: red;
+						font-size: 12px;
+						padding: 0px;
+						font-weight: 400;
+						margin: -5px 0px 5px 0px;
+					}
+					input {
+						display: block;
+						padding: 10px;
+						box-sizing: border-box;
+						border: none;
+						border: 1px solid #ddd;
+						border-radius: 4px;
+						width: 100%;
+					}
+					button {
+						border:none;
+						width: 100%;
+						background-color: $colorPrimary;
+						padding: 12px 0px 12px 0px;
+						color: white;
+						font-size: 16px;
+						font-family: $secondaryFont;
+						border-radius: 3px;
+						letter-spacing: .3px; 
+					}
+				}
+
+				.recuerdame {
+					margin: 20px 0px 20px 0px;
+					text-align: left !important;
+
+					label {
+
+						input {
+							display: inline-block !important;
+							padding: 0px;
+							border: none;
+							width: auto !important;
+						}
+						span {
+							display: inline-block !important;
+							text-align: left !important;
+							padding: 0px;
+							font-weight: 600;
+						}
+					}
+				}
+
+				.registrarme {
+					margin-top: 20px;
+					padding: 20px 0px 20px 0px;
+					border-top: 1px solid #ddd;
+				}
+			}
+
+			@media (max-width: 900px) {
+				margin: 0 auto;
+				max-width: 450px;
+
+				.registrarme {
+					a {
+						display: block;
+					}
+				}
+			}
+			@media (max-width: 530px) {
+				max-width: 90%;
+				padding: 20px;
+			}
+
+		}
+
+		@media (max-width: 1350px) {
+			max-width: 90%;
+		}
+
+		@media (max-width: 900px) {
+			display: block;
+			padding-top: 10vh;
+		}
+	}
+
+	@media (max-width: 900px) {
+		background-color: #e8e8e8;
+		background-image: none;
+	}
+
+	@media (max-width: 350px) {
+		width: 100%;
+	}
+}
+.register {
+	background-image: url('../img/login/registro.jpg') !important;
+
+	@media (max-width: 900px) {
+		background-image: none !important;
+	}
+}
+.recuperar {
+	background-color: #e8e8e8;
+	background-image: none !important;
+
+	.content {
+		justify-content: center !important;
+	}
+}
+
+
+/// portada
+
+#banner {
+	overflow: hidden;
+	background-image: url("../uploads/banner/bg1.jpg");
+	background-position: center top ;
+	background-size: cover;
+	height: 80vh;
+	width: 100%;
+
+	display: flex;
+	align-items: center;
+
+	.banner-content {
+		width: 100%;
+		max-width: 1200px;
+		margin: 0 auto;
+
+		.content {
+			h2 {
+				color: white;
+				text-transform: uppercase;
+				font-family: $tercFont;
+				font-size: 100px;
+				font-weight: 900;
+				max-width: 500px;
+			}
+
+			.boton {
+				background-color: $colorPrimary;
+				padding: 10px 15px 10px 15px;
+				font-size: 18px;
+				font-family: $secondaryFont;
+				color: white;
+				display: inline-block;
+				margin-top: 20px;
+			}
+
+			.boton:hover {
+				background-color: $colorSecond;
+			}
+		}
+	}
+
+	img {
+		width: 100%;
+	}
+}
+
+// home 
+
+
+
+
+// loading
+
+#loading {
+	position: fixed;
+	z-index: 999999999999999999999999999;
+	width: 100%;
+	height:100%;
+	background-color: #f8f8f8;
+	color: #000;
+}
+
+.sk-circle {
+  margin: 100px auto;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -20px;
+  margin-left: -20px;
+}
+.sk-circle .sk-child {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.sk-circle .sk-child:before {
+  content: '';
+  display: block;
+  margin: 0 auto;
+  width: 15%;
+  height: 15%;
+  background-color: #0080c8;
+  border-radius: 100%;
+  -webkit-animation: sk-circleBounceDelay 1.2s infinite ease-in-out both;
+          animation: sk-circleBounceDelay 1.2s infinite ease-in-out both;
+}
+.sk-circle .sk-circle2 {
+  -webkit-transform: rotate(30deg);
+      -ms-transform: rotate(30deg);
+          transform: rotate(30deg); }
+.sk-circle .sk-circle3 {
+  -webkit-transform: rotate(60deg);
+      -ms-transform: rotate(60deg);
+          transform: rotate(60deg); }
+.sk-circle .sk-circle4 {
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg); }
+.sk-circle .sk-circle5 {
+  -webkit-transform: rotate(120deg);
+      -ms-transform: rotate(120deg);
+          transform: rotate(120deg); }
+.sk-circle .sk-circle6 {
+  -webkit-transform: rotate(150deg);
+      -ms-transform: rotate(150deg);
+          transform: rotate(150deg); }
+.sk-circle .sk-circle7 {
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg); }
+.sk-circle .sk-circle8 {
+  -webkit-transform: rotate(210deg);
+      -ms-transform: rotate(210deg);
+          transform: rotate(210deg); }
+.sk-circle .sk-circle9 {
+  -webkit-transform: rotate(240deg);
+      -ms-transform: rotate(240deg);
+          transform: rotate(240deg); }
+.sk-circle .sk-circle10 {
+  -webkit-transform: rotate(270deg);
+      -ms-transform: rotate(270deg);
+          transform: rotate(270deg); }
+.sk-circle .sk-circle11 {
+  -webkit-transform: rotate(300deg);
+      -ms-transform: rotate(300deg);
+          transform: rotate(300deg); }
+.sk-circle .sk-circle12 {
+  -webkit-transform: rotate(330deg);
+      -ms-transform: rotate(330deg);
+          transform: rotate(330deg); }
+.sk-circle .sk-circle2:before {
+  -webkit-animation-delay: -1.1s;
+          animation-delay: -1.1s; }
+.sk-circle .sk-circle3:before {
+  -webkit-animation-delay: -1s;
+          animation-delay: -1s; }
+.sk-circle .sk-circle4:before {
+  -webkit-animation-delay: -0.9s;
+          animation-delay: -0.9s; }
+.sk-circle .sk-circle5:before {
+  -webkit-animation-delay: -0.8s;
+          animation-delay: -0.8s; }
+.sk-circle .sk-circle6:before {
+  -webkit-animation-delay: -0.7s;
+          animation-delay: -0.7s; }
+.sk-circle .sk-circle7:before {
+  -webkit-animation-delay: -0.6s;
+          animation-delay: -0.6s; }
+.sk-circle .sk-circle8:before {
+  -webkit-animation-delay: -0.5s;
+          animation-delay: -0.5s; }
+.sk-circle .sk-circle9:before {
+  -webkit-animation-delay: -0.4s;
+          animation-delay: -0.4s; }
+.sk-circle .sk-circle10:before {
+  -webkit-animation-delay: -0.3s;
+          animation-delay: -0.3s; }
+.sk-circle .sk-circle11:before {
+  -webkit-animation-delay: -0.2s;
+          animation-delay: -0.2s; }
+.sk-circle .sk-circle12:before {
+  -webkit-animation-delay: -0.1s;
+          animation-delay: -0.1s; }
+
+@-webkit-keyframes sk-circleBounceDelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  } 40% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes sk-circleBounceDelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  } 40% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
