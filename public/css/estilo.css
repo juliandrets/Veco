@@ -11,8 +11,12 @@ body {
   clear: both; }
 
 a {
-  color: #444;
-  text-decoration: none; }
+  color: #333;
+  text-decoration: none;
+  transition: .4s; }
+
+a:hover {
+  transition: .4s; }
 
 .fondoLogin {
   background-image: url("../img/login.jpg");
@@ -38,6 +42,69 @@ a {
     background-color: #0088e8;
     color: white;
     border-color: #0088e8; }
+
+header {
+  background-color: #F3F3F3; }
+  header nav {
+    max-width: 1100px;
+    margin: 0 auto;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 155px; }
+    header nav .logo {
+      height: 90px; }
+    header nav .b-menu {
+      background-color: #333333;
+      width: 60px;
+      height: 60px;
+      border-radius: 200px;
+      text-align: center;
+      transition: .5s; }
+      header nav .b-menu i {
+        color: white;
+        line-height: 62px;
+        font-size: 30px; }
+    header nav .b-menu:hover {
+      background-color: #E9302B;
+      transition: .5s; }
+  header #menu {
+    z-index: 100;
+    display: none;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background-color: white; }
+    header #menu section {
+      width: 50vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      header #menu section ul {
+        text-align: right; }
+        header #menu section ul li {
+          color: #333;
+          font-size: 22px;
+          font-weight: 300;
+          padding: 5px 0px 5px 0px; }
+        header #menu section ul a:hover {
+          color: #E9302B; }
+      header #menu section .b-menu-a {
+        position: absolute;
+        right: 23.7%;
+        top: calc((155px / 2) - 30px);
+        background-color: #E9302B;
+        width: 60px;
+        height: 60px;
+        border-radius: 200px;
+        text-align: center;
+        transition: .5s; }
+        header #menu section .b-menu-a i {
+          color: white;
+          line-height: 62px;
+          font-size: 30px; }
 
 #login {
   background-image: url("../img/login/login.jpg");
@@ -93,11 +160,11 @@ a {
         #login .content .form form label button {
           border: none;
           width: 100%;
-          background-color: #F1592A;
+          background-color: #E9302B;
           padding: 12px 0px 12px 0px;
           color: white;
           font-size: 16px;
-          font-family: "BlockLetter";
+          font-family: "Roboto";
           border-radius: 3px;
           letter-spacing: .3px; }
         #login .content .form form .recuerdame {
@@ -154,38 +221,42 @@ a {
   .recuperar .content {
     justify-content: center !important; }
 
-#banner {
-  overflow: hidden;
-  background-image: url("../uploads/banner/bg1.jpg");
-  background-position: center top;
-  background-size: cover;
-  height: 80vh;
+#banner li {
+  height: calc(100vh - 155px);
   width: 100%;
-  display: flex;
+  max-width: 100%;
+  background-color: #fff;
   align-items: center; }
-  #banner .banner-content {
-    width: 100%;
-    max-width: 1200px;
+  #banner li figure {
+    height: 63vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center; }
+    #banner li figure img {
+      width: 100%; }
+  #banner li .content {
+    width: 1100px;
     margin: 0 auto; }
-    #banner .banner-content .content h2 {
-      color: white;
-      text-transform: uppercase;
-      font-family: "Trump";
-      font-size: 100px;
-      font-weight: 900;
-      max-width: 500px; }
-    #banner .banner-content .content .boton {
-      background-color: #F1592A;
-      padding: 10px 15px 10px 15px;
-      font-size: 18px;
-      font-family: "BlockLetter";
-      color: white;
-      display: inline-block;
-      margin-top: 20px; }
-    #banner .banner-content .content .boton:hover {
-      background-color: #231F20; }
-  #banner img {
-    width: 100%; }
+    #banner li .content section {
+      width: 800px;
+      height: 36vh;
+      background-color: #fff;
+      margin-top: -17.5vh;
+      position: relative;
+      z-index: 2;
+      padding: 60px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      font-size: 26px;
+      font-weight: 500;
+      line-height: 30px;
+      color: #333;
+      border-right: 5px solid #333; }
+      #banner li .content section .icon {
+        margin-top: 40px;
+        color: #E9302B;
+        font-size: 45px; }
 
 #loading {
   position: fixed;

@@ -11,3 +11,17 @@
 	  });
 	  }
 	</script>
+
+	<script>
+		$(".b-menu").click(function() {
+			$("#menu").fadeIn("slow", function() {
+
+			});
+		});
+        $(".b-menu-a").click(function() {
+            $("#menu").fadeOut("slow", function() {
+
+            });
+        });
+
+	</script>

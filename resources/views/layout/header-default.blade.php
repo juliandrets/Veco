@@ -16,6 +16,27 @@
 </section>
 
 <header>
+	<nav>
+		<img src="/img/logo.png" alt="Logo Veco" class="logo">
+		<div class="b-menu">
+			<i class="fa fa-bars" aria-hidden="true"></i>
+		</div>
+	</nav>
 
-
+	<section id="menu">
+		<section>
+			<div class="b-menu-a">
+				<i class="fa fa-close" aria-hidden="true"></i>
+			</div>
+			<ul>
+				<li><a href="">Home</a></li>
+				<li><a href="">Productos</a></li>
+				<li><a href="">Servicios</a></li>
+				<li><a href="">Obras Realizadas</a></li>
+				<li><a href="">Sobre Veco</a></li>
+				<li><a href="">Noticias</a></li>
+				<li><a href="">Contacto</a></li>
+			</ul>
+		</section>
+	</section>
 </header>
