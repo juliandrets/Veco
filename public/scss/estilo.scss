@@ -17,6 +17,7 @@ $colorFont 		: #333;
 
 body {
 	font-family: 'Roboto', sans-serif;
+	background-color: $colorFondo;
 }
 
 .clear {clear: both;}
@@ -65,7 +66,6 @@ a:hover {
 }
 
 header {
-	background-color: $colorFondo;
 
 	nav {
 		max-width: 1100px;
@@ -151,7 +151,46 @@ header {
 }
 
 footer {
+	max-width: 1200px;
+	margin: 0 auto;
 
+	.bg {
+		height: 250px;
+		background-image: url('../img/footer/bg.jpg');
+		background-size: cover;
+		background-position: top;
+	}
+
+	.footbar {
+		background-color: #E9302B;
+		color: white;
+		display: flex;
+		justify-content: space-between;
+		padding: 30px 60px 30px 60px;
+		box-sizing: border-box;
+
+		p {
+			font-size: 12px;
+			width: 250px;
+			text-align: right;
+		}
+		.copy {
+			font-weight: 600;
+			width: 250px;;
+			text-align: left;
+		}
+		.redes {
+			display: flex;
+			justify-content: space-between;
+			width: 250px;
+			li {
+				margin: 0px 20px 0px 20px;
+				i {
+					font-size: 30px;
+				}
+			}
+		}
+	}
 }
 
 // login
@@ -318,7 +357,7 @@ footer {
 		height: calc(100vh - 155px);
 		width: 100%;
 		max-width: 100%;
-		background-color: #fff;
+		background-color: $colorFondo;
 		align-items: center;
 
 		figure {
@@ -339,7 +378,7 @@ footer {
 			section {
 				width: 800px;
 				height: 36vh;
-				background-color: #fff;
+				background-color: $colorFondo;
 				margin-top: -17.5vh;
 				position: relative;
 				z-index: 2;
@@ -365,6 +404,93 @@ footer {
 
 // home 
 
+#productos {
+	max-width: 1200px;
+	margin: 0 auto;
+	overflow: hidden;
+
+	.content {
+		width: 100%;
+		max-width: 65%;
+		float: left;
+		padding-top: 90px;
+
+		h2 {
+			font-size: 32px;
+			font-weight: 600;
+		}
+
+		section	{
+			margin-top: 50px;
+			display: flex;
+			justify-content: space-between;
+
+			.opciones {
+				width: 100%;
+				max-width: 250px;
+
+				li {
+					font-size: 28px;
+					font-weight: 100;
+					border-bottom: 1px solid;
+					border-color: rgba(0,0,0,0.1);
+					padding: 10px 0px 10px 0px;
+				}
+			}
+
+			.opcionContent {
+				max-width: 700px;
+				padding: 0px 50px 0px 30px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+
+				li {
+					article {
+						p {
+							font-size: 16px;
+							line-height: 25px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	aside {
+		width: 100%;
+		max-width: 35%;
+		float: right;
+
+		ul {
+			li {
+				overflow: hidden;
+				width: 100%;
+				text-align: center;
+
+				img {
+					height: 100%;
+					max-height: 65vh;
+				}
+			}
+		}
+	}
+	
+	.op2, .op3, .op4, .op5 {
+		display: none;
+	}
+}
+
+#portfolio-index {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 80px 0px 80px 0px;
+
+	h2 {
+		font-size: 32px;
+		font-weight: 600;
+	}
+}
 
 
 

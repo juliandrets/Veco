@@ -5,7 +5,8 @@
   font-family: "Trump";
   src: url("../fonts/trump_gothic_west.ttf"); }
 body {
-  font-family: 'Roboto', sans-serif; }
+  font-family: 'Roboto', sans-serif;
+  background-color: #F3F3F3; }
 
 .clear {
   clear: both; }
@@ -43,67 +44,97 @@ a:hover {
     color: white;
     border-color: #0088e8; }
 
-header {
-  background-color: #F3F3F3; }
-  header nav {
-    max-width: 1100px;
-    margin: 0 auto;
-    overflow: hidden;
+header nav {
+  max-width: 1100px;
+  margin: 0 auto;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 155px; }
+  header nav .logo {
+    height: 90px; }
+  header nav .b-menu {
+    background-color: #333333;
+    width: 60px;
+    height: 60px;
+    border-radius: 200px;
+    text-align: center;
+    transition: .5s; }
+    header nav .b-menu i {
+      color: white;
+      line-height: 62px;
+      font-size: 30px; }
+  header nav .b-menu:hover {
+    background-color: #E9302B;
+    transition: .5s; }
+header #menu {
+  z-index: 100;
+  display: none;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  background-color: white; }
+  header #menu section {
+    width: 50vw;
+    height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    height: 155px; }
-    header nav .logo {
-      height: 90px; }
-    header nav .b-menu {
-      background-color: #333333;
+    justify-content: center; }
+    header #menu section ul {
+      text-align: right; }
+      header #menu section ul li {
+        color: #333;
+        font-size: 22px;
+        font-weight: 300;
+        padding: 5px 0px 5px 0px; }
+      header #menu section ul a:hover {
+        color: #E9302B; }
+    header #menu section .b-menu-a {
+      position: absolute;
+      right: 23.7%;
+      top: calc((155px / 2) - 30px);
+      background-color: #E9302B;
       width: 60px;
       height: 60px;
       border-radius: 200px;
       text-align: center;
       transition: .5s; }
-      header nav .b-menu i {
+      header #menu section .b-menu-a i {
         color: white;
         line-height: 62px;
         font-size: 30px; }
-    header nav .b-menu:hover {
-      background-color: #E9302B;
-      transition: .5s; }
-  header #menu {
-    z-index: 100;
-    display: none;
-    position: absolute;
-    right: 0px;
-    top: 0px;
-    background-color: white; }
-    header #menu section {
-      width: 50vw;
-      height: 100vh;
+
+footer {
+  max-width: 1200px;
+  margin: 0 auto; }
+  footer .bg {
+    height: 250px;
+    background-image: url("../img/footer/bg.jpg");
+    background-size: cover;
+    background-position: top; }
+  footer .footbar {
+    background-color: #E9302B;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 60px 30px 60px;
+    box-sizing: border-box; }
+    footer .footbar p {
+      font-size: 12px;
+      width: 250px;
+      text-align: right; }
+    footer .footbar .copy {
+      font-weight: 600;
+      width: 250px;
+      text-align: left; }
+    footer .footbar .redes {
       display: flex;
-      align-items: center;
-      justify-content: center; }
-      header #menu section ul {
-        text-align: right; }
-        header #menu section ul li {
-          color: #333;
-          font-size: 22px;
-          font-weight: 300;
-          padding: 5px 0px 5px 0px; }
-        header #menu section ul a:hover {
-          color: #E9302B; }
-      header #menu section .b-menu-a {
-        position: absolute;
-        right: 23.7%;
-        top: calc((155px / 2) - 30px);
-        background-color: #E9302B;
-        width: 60px;
-        height: 60px;
-        border-radius: 200px;
-        text-align: center;
-        transition: .5s; }
-        header #menu section .b-menu-a i {
-          color: white;
-          line-height: 62px;
+      justify-content: space-between;
+      width: 250px; }
+      footer .footbar .redes li {
+        margin: 0px 20px 0px 20px; }
+        footer .footbar .redes li i {
           font-size: 30px; }
 
 #login {
@@ -225,7 +256,7 @@ header {
   height: calc(100vh - 155px);
   width: 100%;
   max-width: 100%;
-  background-color: #fff;
+  background-color: #F3F3F3;
   align-items: center; }
   #banner li figure {
     height: 63vh;
@@ -240,7 +271,7 @@ header {
     #banner li .content section {
       width: 800px;
       height: 36vh;
-      background-color: #fff;
+      background-color: #F3F3F3;
       margin-top: -17.5vh;
       position: relative;
       z-index: 2;
@@ -257,6 +288,62 @@ header {
         margin-top: 40px;
         color: #E9302B;
         font-size: 45px; }
+
+#productos {
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden; }
+  #productos .content {
+    width: 100%;
+    max-width: 65%;
+    float: left;
+    padding-top: 90px; }
+    #productos .content h2 {
+      font-size: 32px;
+      font-weight: 600; }
+    #productos .content section {
+      margin-top: 50px;
+      display: flex;
+      justify-content: space-between; }
+      #productos .content section .opciones {
+        width: 100%;
+        max-width: 250px; }
+        #productos .content section .opciones li {
+          font-size: 28px;
+          font-weight: 100;
+          border-bottom: 1px solid;
+          border-color: rgba(0, 0, 0, 0.1);
+          padding: 10px 0px 10px 0px; }
+      #productos .content section .opcionContent {
+        max-width: 700px;
+        padding: 0px 50px 0px 30px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box; }
+        #productos .content section .opcionContent li article p {
+          font-size: 16px;
+          line-height: 25px; }
+  #productos aside {
+    width: 100%;
+    max-width: 35%;
+    float: right; }
+    #productos aside ul li {
+      overflow: hidden;
+      width: 100%;
+      text-align: center; }
+      #productos aside ul li img {
+        height: 100%;
+        max-height: 65vh; }
+  #productos .op2, #productos .op3, #productos .op4, #productos .op5 {
+    display: none; }
+
+#portfolio-index {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 0px 80px 0px; }
+  #portfolio-index h2 {
+    font-size: 32px;
+    font-weight: 600; }
 
 #loading {
   position: fixed;
