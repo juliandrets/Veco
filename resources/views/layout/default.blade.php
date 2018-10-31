@@ -18,7 +18,6 @@
 
         <link rel="stylesheet" type="text/css" href="{{ asset('plugins/slick/slick.css') }}"/>
         <link rel="stylesheet" type="text/css" href="{{ asset('plugins/slick/slick-theme.css') }}"/>
-
     </head>
     <body>
         @yield('content')

@@ -4,6 +4,9 @@
 @font-face {
   font-family: "Trump";
   src: url("../fonts/trump_gothic_west.ttf"); }
+* {
+  min-height: 0; }
+
 body {
   font-family: 'Roboto', sans-serif;
   background-color: #F3F3F3; }
@@ -314,6 +317,8 @@ footer {
           border-bottom: 1px solid;
           border-color: rgba(0, 0, 0, 0.1);
           padding: 10px 0px 10px 0px; }
+        #productos .content section .opciones .active {
+          font-weight: 300 !important; }
       #productos .content section .opcionContent {
         max-width: 700px;
         padding: 0px 50px 0px 30px;
@@ -344,6 +349,63 @@ footer {
   #portfolio-index h2 {
     font-size: 32px;
     font-weight: 600; }
+  #portfolio-index ul {
+    margin-top: 30px;
+    box-sizing: border-box; }
+    #portfolio-index ul li {
+      overflow: hidden;
+      max-height: 450px;
+      box-sizing: border-box;
+      position: relative; }
+      #portfolio-index ul li figure {
+        width: 55%;
+        height: 100%;
+        float: left;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center; }
+        #portfolio-index ul li figure img {
+          max-height: 450px; }
+      #portfolio-index ul li article {
+        width: 40%;
+        float: left;
+        padding: 20px 60px 20px 60px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 450px; }
+        #portfolio-index ul li article h2 {
+          font-size: 27px;
+          font-weight: 700; }
+        #portfolio-index ul li article h3 {
+          font-size: 26px;
+          font-weight: 100; }
+        #portfolio-index ul li article p {
+          font-size: 15px;
+          font-weight: 300;
+          line-height: 25px;
+          margin-top: 30px; }
+      #portfolio-index ul li .next {
+        width: 5%;
+        right: 0px;
+        background-color: #333333;
+        position: absolute;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: .4s;
+        cursor: pointer; }
+        #portfolio-index ul li .next i {
+          color: white;
+          font-size: 45px; }
+      #portfolio-index ul li .next:hover {
+        transition: .4s;
+        opacity: .9; }
 
 #loading {
   position: fixed;

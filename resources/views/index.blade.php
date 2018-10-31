@@ -78,29 +78,134 @@
 
     <section id="portfolio-index">
         <h2>__ Nuestros Trabajos</h2>
+        <ul class="portfolio-ul">
+            <li>
+                <figure>
+                    <img src="https://www.tecnospa.com/ContentsFiles/tecno_porcelanosa_preview.jpg" alt="">
+                </figure>
+                <article>
+                    <div>
+                        <h2>Porcelanosa</h2>
+                        <h3>New York</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci doloremque error est maiores necessitatibus nemo officia quod reprehenderit repudiandae voluptatibus. Doloribus est eum exercitationem laboriosam odio quae quaerat recusandae tenetur.</p>
+                    </div>
+                </article>
+                <div class="next">
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </div>
+            </li>
+            <li>
+                <figure>
+                    <img src="https://www.tecnospa.com/ContentsFiles/tecno_project_BIOMERIEUX_preview.jpg" alt="">
+                </figure>
+                <article>
+                    <div>
+                        <h2>Biomerieux</h2>
+                        <h3>Marcy-L'etoile</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci doloremque error est maiores necessitatibus nemo officia quod reprehenderit repudiandae voluptatibus. Doloribus est eum exercitationem laboriosam odio quae quaerat recusandae tenetur.</p>
+                    </div>
+                </article>
+                <div class="next">
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </div>
+            </li>
+        </ul>
     </section>
 
     <!-- Incluyo el footer y los script -->
     @include('layout.footer')
     @include('layout.scripts')
 
-    <!-- Wow Slider -->
-    <script type="text/javascript" src="{{ asset('plugins/wow/wowslider.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('plugins/wow/script.js') }}"></script>
+    <script>
+        // default
+        $(".b-op1").addClass("active");
+
+        $(".b-op1").click(function () {
+            $(".op1").fadeIn("fast", function() {});
+            $(".op2").css("display", "none");
+            $(".op3").css("display", "none");
+            $(".op4").css("display", "none");
+            $(".op5").css("display", "none");
+
+            $(this).addClass("active");
+            $(".b-op2").removeClass("active");
+            $(".b-op3").removeClass("active");
+            $(".b-op4").removeClass("active");
+            $(".b-op5").removeClass("active");
+        });
+        $(".b-op2").click(function () {
+            $(".op1").css("display", "none");
+            $(".op2").fadeIn("fast", function() {});
+            $(".op3").css("display", "none");
+            $(".op4").css("display", "none");
+            $(".op5").css("display", "none");
+
+            $(this).addClass("active");
+            $(".b-op1").removeClass("active");
+            $(".b-op3").removeClass("active");
+            $(".b-op4").removeClass("active");
+            $(".b-op5").removeClass("active");
+        });
+        $(".b-op3").click(function () {
+            $(".op1").css("display", "none");
+            $(".op2").css("display", "none");
+            $(".op3").fadeIn("fast", function() {});
+            $(".op4").css("display", "none");
+            $(".op5").css("display", "none");
+
+            $(this).addClass("active");
+            $(".b-op1").removeClass("active");
+            $(".b-op2").removeClass("active");
+            $(".b-op4").removeClass("active");
+            $(".b-op5").removeClass("active");
+        });
+        $(".b-op4").click(function () {
+            $(".op1").css("display", "none");
+            $(".op2").css("display", "none");
+            $(".op3").css("display", "none");
+            $(".op4").fadeIn("fast", function() {});
+            $(".op5").css("display", "none");
+
+            $(this).addClass("active");
+            $(".b-op1").removeClass("active");
+            $(".b-op2").removeClass("active");
+            $(".b-op3").removeClass("active");
+            $(".b-op5").removeClass("active");
+        });
+        $(".b-op5").click(function () {
+            $(".op1").css("display", "none");
+            $(".op2").css("display", "none");
+            $(".op3").css("display", "none");
+            $(".op4").css("display", "none");
+            $(".op5").fadeIn("fast", function() {});
+
+            $(this).addClass("active");
+            $(".b-op1").removeClass("active");
+            $(".b-op2").removeClass("active");
+            $(".b-op3").removeClass("active");
+            $(".b-op4").removeClass("active");
+        });
+    </script>
 
     <!-- Slick carrousel -->
     <script type="text/javascript" src="/plugins/slick/slick.min.js"></script>
+
     <script type="text/javascript">
-         $(document).ready(function() {
-            $('#banner').slick({
-                autoplay: true,
-                infinite: true,
-                speed: 500,
-                fade: true,
-                cssEase: 'linear',
-                slidesToShow: 1,
-                arrows: false
-            });
+        $('#banner').slick({
+            autoplay: true,
+            infinite: true,
+            speed: 500,
+            fade: true,
+            cssEase: 'linear',
         });
-     </script>
+        $('.portfolio-ul').slick({
+            autoplay: true,
+            infinite: true,
+            speed: 500
+        });
+        $('.next').click(function(){
+            $(".portfolio-ul").slick('slickNext');
+        });
+    </script>
+
 @endsection
