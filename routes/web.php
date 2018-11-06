@@ -4,7 +4,8 @@
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
 Route::get('index', 'HomeController@index');
-Route::get('faqs', 'HomeController@faqs');
+Route::get('noticia', 'HomeController@noticia');
+Route::get('proyectos', 'HomeController@proyectos');
 
 // Admin Panel ------------------------------------------------------------
 Route::get('adm', 'AdminPanelController@index')->middleware('auth', 'role:admin');
@@ -26,15 +27,15 @@ Route::get('adm', 'AdminPanelController@index')->middleware('auth', 'role:admin'
 	Route::resource('adm/categories', 'CategoryController');
 	Route::get('adm/categories/{id}/delete', 'CategoryController@destroy')->middleware('auth', 'role:admin');
 	Route::get('adm/categories/{id}/edit', 'CategoryController@edit')->middleware('auth', 'role:admin');
-	Route::post('adm/categories/{id}/update', 'CategoryController@update')->middleware('auth', 'role:admin');	
-	Route::get('category/{name}', 'CategoryController@show');	
-	Route::post('category/{name}/filter/price', 'CategoryController@showWithFilterPrice');	
+	Route::post('adm/categories/{id}/update', 'CategoryController@update')->middleware('auth', 'role:admin');
+	Route::get('category/{name}', 'CategoryController@show');
+	Route::post('category/{name}/filter/price', 'CategoryController@showWithFilterPrice');
 
 	// marcas
 	Route::resource('adm/brands', 'BrandController');
 	Route::get('adm/brands/{id}/delete', 'BrandController@destroy')->middleware('auth', 'role:admin');
 	Route::get('adm/brands/{id}/edit', 'BrandController@edit')->middleware('auth', 'role:admin');
-	Route::post('adm/brands/{id}/update', 'BrandController@update')->middleware('auth', 'role:admin');	
+	Route::post('adm/brands/{id}/update', 'BrandController@update')->middleware('auth', 'role:admin');
 	Route::get('brand/{name}', 'BrandController@brandSection');
 
 	// lista de deseos
@@ -49,7 +50,7 @@ Route::get('adm', 'AdminPanelController@index')->middleware('auth', 'role:admin'
 
 	// buscar
 	Route::post('search', 'SearchController@index');
-	Route::post('category/filter/price', 'CategoryController@showWithFilterPrice');	
+	Route::post('category/filter/price', 'CategoryController@showWithFilterPrice');
 
 	// Perfil
 	Route::get('profile', 'UserController@show')->name('index');

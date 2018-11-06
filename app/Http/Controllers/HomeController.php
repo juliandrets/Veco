@@ -28,5 +28,13 @@ class HomeController extends Controller
     {
         return view('index');
     }
+    public function noticia()
+    {
+        return view('noticia');
+    }
+    public function proyectos()
+    {
+        return view('proyectos');
+    }
 
 }

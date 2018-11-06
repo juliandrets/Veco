@@ -459,6 +459,88 @@ footer {
         text-decoration: underline;
         font-size: 13px !important; }
 
+#banner-noticia {
+  height: 450px;
+  background-color: #333;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  #banner-noticia img {
+    width: 100%; }
+
+.map {
+  padding-bottom: 30px; }
+  .map li {
+    display: inline-block;
+    font-size: 14px; }
+
+#noticia {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 70px 0px 70px 0px; }
+  #noticia .volver i {
+    font-size: 30px; }
+  #noticia h2 {
+    padding-top: 20px; }
+  #noticia p {
+    padding-top: 30px;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 22px; }
+
+#proyectos #cabecera {
+  max-width: 1000px;
+  margin: 0 auto; }
+  #proyectos #cabecera h2 {
+    padding-top: 20px; }
+  #proyectos #cabecera p {
+    padding-top: 30px;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 22px;
+    max-width: 600px; }
+#proyectos ul {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 0px 60px 0px; }
+  #proyectos ul li {
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ccc;
+    position: relative;
+    margin-bottom: 20px; }
+    #proyectos ul li img {
+      min-height: 100%;
+      min-width: 100%; }
+    #proyectos ul li section {
+      position: absolute;
+      opacity: 0;
+      background-color: rgba(233, 48, 43, 0.9);
+      width: 70%;
+      height: 70%;
+      box-sizing: border-box;
+      color: white;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: .6s; }
+      #proyectos ul li section h3 {
+        font-size: 50px;
+        font-weight: 700; }
+      #proyectos ul li section h4 {
+        font-weight: 300;
+        font-size: 23px;
+        margin-top: 10px; }
+  #proyectos ul li:hover > section {
+    opacity: 1;
+    transition: .6s; }
+
 #loading {
   position: fixed;
   z-index: 999999999999999999999999999;

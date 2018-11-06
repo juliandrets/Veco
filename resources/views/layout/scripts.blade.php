@@ -24,3 +24,13 @@
             });
         });
 	</script>
+
+	<script>
+        $(function() {
+            $(window).scroll(function() {
+                $("#menu").fadeOut("slow", function() {
+
+                });
+            });
+        });
+	</script>

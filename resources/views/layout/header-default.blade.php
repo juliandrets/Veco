@@ -17,7 +17,7 @@
 
 <header>
 	<nav>
-		<img src="/img/logo.png" alt="Logo Veco" class="logo">
+		<a href="/"><img src="/img/logo.png" alt="Logo Veco" class="logo"></a>
 		<div class="b-menu">
 			<i class="fa fa-bars" aria-hidden="true"></i>
 		</div>
