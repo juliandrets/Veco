@@ -79,36 +79,23 @@
     <section id="portfolio-index">
         <h2>__ Nuestros Trabajos</h2>
         <ul class="portfolio-ul">
-            <li>
-                <figure>
-                    <img src="https://www.tecnospa.com/ContentsFiles/tecno_porcelanosa_preview.jpg" alt="">
-                </figure>
-                <article>
-                    <div>
-                        <h2>Porcelanosa</h2>
-                        <h3>New York</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci doloremque error est maiores necessitatibus nemo officia quod reprehenderit repudiandae voluptatibus. Doloribus est eum exercitationem laboriosam odio quae quaerat recusandae tenetur.</p>
+            @foreach ($projects as $project)
+                <a href="/project/{{ $project->id }}"><li>
+                    <figure>
+                        <img src="/uploads/projects/{{$project->firstPicture->first()->picture}}" alt="">
+                    </figure>
+                    <article>
+                        <div>
+                            <h2>{{ $project->name }}</h2>
+                            <h3>{{ $project->place }}</h3>
+                            <p>{{ $project->description }}</p>
+                        </div>
+                    </article>
+                    <div class="next">
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
                     </div>
-                </article>
-                <div class="next">
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </div>
-            </li>
-            <li>
-                <figure>
-                    <img src="https://www.tecnospa.com/ContentsFiles/tecno_project_BIOMERIEUX_preview.jpg" alt="">
-                </figure>
-                <article>
-                    <div>
-                        <h2>Biomerieux</h2>
-                        <h3>Marcy-L'etoile</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci doloremque error est maiores necessitatibus nemo officia quod reprehenderit repudiandae voluptatibus. Doloribus est eum exercitationem laboriosam odio quae quaerat recusandae tenetur.</p>
-                    </div>
-                </article>
-                <div class="next">
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </div>
-            </li>
+                </li></a>
+            @endforeach
         </ul>
     </section>
 

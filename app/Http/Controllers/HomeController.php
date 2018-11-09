@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Project;
 use Illuminate\Http\Request;
-use App\Product;
-use App\Brand;
-use App\Category;
 
 class HomeController extends Controller
 {
@@ -26,7 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $projects = Project::orderBy('id', 'desc')->take(5)->get();
+        return view('index', [
+            'projects' => $projects
+        ]);
     }
     public function noticia()
     {
@@ -35,6 +36,14 @@ class HomeController extends Controller
     public function proyectos()
     {
         return view('proyectos');
+    }
+    public function proyecto()
+    {
+        return view('proyecto');
+    }
+    public function noticias()
+    {
+        return view('noticias');
     }
 
 }

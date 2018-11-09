@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Brand;
+use App\Picture;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
-class BrandController extends Controller
+class PictureController extends Controller
 {
     public function __construct()
     {
@@ -45,8 +47,8 @@ class BrandController extends Controller
 
     public function destroy($id)
     {
-        $brand = Brand::find($id);
-        $brand->delete();
-        return redirect('adm/brands');
+        $picture = Picture::find($id);
+        $picture->delete();
+        return Redirect::back();
     }
 }

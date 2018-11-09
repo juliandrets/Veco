@@ -15,8 +15,6 @@ class AdminPanelController extends Controller
     }
 
     public function index() {
-    	$products = Product::orderBy('id', 'desc')->paginate(10);
-
-    	return view('admin-panel', ['products' => $products]);
+    	return view('admin-panel');
     }
 }
