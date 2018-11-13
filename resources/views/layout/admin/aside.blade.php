@@ -17,7 +17,7 @@
 					<a href="/adm/projects"> <i class="menu-icon fa fa-laptop"></i>Proyectos</a>
 				</li>
 				<li class="menu-item-has-children">
-					<a href="#"> <i class="menu-icon fa fa-newspaper-o"></i>Blog</a>
+					<a href="/adm/blog"> <i class="menu-icon fa fa-newspaper-o"></i>Blog</a>
 				</li>
 			</ul>
 		</div><!-- /.navbar-collapse -->

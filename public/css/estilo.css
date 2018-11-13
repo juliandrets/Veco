@@ -646,6 +646,9 @@ footer {
       font-size: 15px;
       font-weight: 300;
       line-height: 22px; }
+      #proyecto .content p strong {
+        font-size: 17px;
+        font-weight: 600; }
   #proyecto aside {
     float: right;
     width: 26%;

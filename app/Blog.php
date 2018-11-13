@@ -11,6 +11,10 @@ class Blog extends Model
 
     public function pictures()
     {
-        $this->hasMany(Picture::class, 'blog_id', "id");
+        return $this->hasMany(Picture::class, 'blog_id', "id");
+    }
+    public function firstPicture()
+    {
+        return $this->hasMany(Picture::class, 'blog_id', "id")->take(1);
     }
 }

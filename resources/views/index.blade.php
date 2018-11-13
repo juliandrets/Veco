@@ -80,21 +80,23 @@
         <h2>__ Nuestros Trabajos</h2>
         <ul class="portfolio-ul">
             @foreach ($projects as $project)
-                <a href="/project/{{ $project->id }}"><li>
-                    <figure>
-                        <img src="/uploads/projects/{{$project->firstPicture->first()->picture}}" alt="">
-                    </figure>
-                    <article>
-                        <div>
-                            <h2>{{ $project->name }}</h2>
-                            <h3>{{ $project->place }}</h3>
-                            <p>{{ $project->description }}</p>
-                        </div>
-                    </article>
+                <li>
+                    <a href="/project/{{ $project->id }}">
+                        <figure>
+                            <img src="/uploads/projects/{{$project->firstPicture->first()->picture}}" alt="">
+                        </figure>
+                        <article>
+                            <div>
+                                <h2>{{ $project->name }}</h2>
+                                <h3>{{ $project->place }}</h3>
+                                <p>{{ $project->description }}</p>
+                            </div>
+                        </article>
+                    </a>
                     <div class="next">
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
                     </div>
-                </li></a>
+                </li>
             @endforeach
         </ul>
     </section>

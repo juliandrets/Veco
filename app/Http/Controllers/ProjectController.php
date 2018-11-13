@@ -82,7 +82,15 @@ class ProjectController extends Controller
     public function show($id)
     {
         $project = Project::find($id);
-        return view('project-show', ['project' => $project]);
+        return view('proyecto', ['project' => $project]);
+    }
+
+    public function showProjects()
+    {
+        $projects = Project::orderBy('id', 'desc')->paginate(10);
+        return view('proyectos', [
+           'projects' => $projects
+        ]);
     }
 
     public function edit(Project $project)

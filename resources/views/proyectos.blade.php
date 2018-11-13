@@ -15,33 +15,17 @@
         </section>
 
         <ul>
+            @foreach($projects as $project)
             <li>
-                <img src="https://www.tecnospa.com/ContentsFiles/tecno_porcelanosa_preview.jpg" alt="">
+                <img src="uploads/projects/{{ $project->firstPicture->first()->picture }}" alt="">
                 <section>
                     <div>
-                        <h3>Porcelanosa</h3>
-                        <h4>New York 2015</h4>
+                        <h3>{{ $project->name }}</h3>
+                        <h4>{{ $project->place }} / {{ $project->date }}</h4>
                     </div>
                 </section>
             </li>
-            <li>
-                <img src="https://www.tecnospa.com/ContentsFiles/tecno_porcelanosa_preview.jpg" alt="">
-                <section>
-                    <div>
-                        <h3>Porcelanosa</h3>
-                        <h4>New York 2015</h4>
-                    </div>
-                </section>
-            </li>
-            <li>
-                <img src="https://www.tecnospa.com/ContentsFiles/tecno_porcelanosa_preview.jpg" alt="">
-                <section>
-                    <div>
-                        <h3>Porcelanosa</h3>
-                        <h4>New York 2015</h4>
-                    </div>
-                </section>
-            </li>
+            @endforeach
         </ul>
     </section>
 
