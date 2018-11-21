@@ -60,11 +60,11 @@ class BlogController extends Controller
             $image->move($destinationPath, $name);
             $tumbImage->save(public_path('/uploads/blog/tumb/' . $name));
 
-            $project = Project::orderBy('created_at', 'desc')->first();
+            $blog = Blog::orderBy('created_at', 'desc')->first();
 
             $blogPicture = new Picture([
                 'picture' => $name,
-                'blog_id' => $project->id,
+                'blog_id' => $blog->id,
             ]);
 
             $blogPicture->save();
@@ -76,13 +76,13 @@ class BlogController extends Controller
 
     public function show($id)
     {
-        $blogs = Project::find($id);
-        return view('noticia', ['blogs' => $blogs]);
+        $blog = Blog::find($id);
+        return view('noticia', ['blog' => $blog]);
     }
 
-    public function showProjects()
+    public function showBlogs()
     {
-        $blogs = Project::orderBy('id', 'desc')->paginate(10);
+        $blogs = Blog::orderBy('id', 'desc')->paginate(10);
         return view('noticias', [
            'blogs' => $blogs
         ]);
@@ -113,11 +113,11 @@ class BlogController extends Controller
                 $image->move($destinationPath, $name);
                 $tumbImage->save(public_path('/uploads/blog/tumb/' . $name));
 
-                $project = Project::orderBy('created_at', 'desc')->first();
+                $blog = Blog::orderBy('created_at', 'desc')->first();
 
                 $blogPicture = new Picture([
                     'picture' => $name,
-                    'blog_id' => $project->id,
+                    'blog_id' => $blog->id,
                 ]);
 
                 $blogPicture->save();

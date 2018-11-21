@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Blog;
 use App\Project;
 use Illuminate\Http\Request;
 
@@ -25,25 +26,12 @@ class HomeController extends Controller
     public function index()
     {
         $projects = Project::orderBy('id', 'desc')->take(5)->get();
+        $blogs = Blog::orderBy('id', 'desc')->take(3)->get();
+
         return view('index', [
-            'projects' => $projects
+            'projects'  => $projects,
+            'blogs'     => $blogs
         ]);
-    }
-    public function noticia()
-    {
-        return view('noticia');
-    }
-    public function proyectos()
-    {
-        return view('proyectos');
-    }
-    public function proyecto()
-    {
-        return view('proyecto');
-    }
-    public function noticias()
-    {
-        return view('noticias');
     }
 
 }

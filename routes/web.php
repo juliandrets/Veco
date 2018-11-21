@@ -21,7 +21,7 @@ Route::get('adm', 'AdminPanelController@index')->middleware('auth', 'role:admin'
     // Blog
     Route::resource('adm/blog', 'BlogController');
     Route::get('news/{id}', 'BlogController@show');
-    Route::get('news', 'BlogController@showProjects');
+    Route::get('news', 'BlogController@showBlogs');
     Route::get('adm/blog/{id}/delete', 'BlogController@destroy')->middleware('auth', 'role:admin');
     Route::get('adm/blog/{id}/edit', 'BlogController@edit')->middleware('auth', 'role:admin');
     Route::post('adm/blog/{id}/update', 'BlogController@update')->middleware('auth', 'role:admin');
