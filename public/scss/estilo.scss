@@ -402,11 +402,21 @@ footer {
 				-webkit-box-sizing: border-box;
 				-moz-box-sizing: border-box;
 				box-sizing: border-box;
-				font-size: 26px;
-				font-weight: 500;
-				line-height: 30px;
 				color: $colorFont;
 				border-right: 5px solid $colorFont;
+
+				h2 {
+					font-size: 32px;
+					font-weight: 800;
+					line-height: 30px;
+				}
+
+				p {
+					font-size: 17px;
+					font-weight: 500;
+					line-height: 30px;
+					margin-top: 10px;
+				}
 
 				.icon {
 					margin-top: 40px;
@@ -764,6 +774,155 @@ footer {
 	}
 }
 
+#about {
+	max-width: 1200px;
+	margin: 0 auto;
+
+	#cabecera {
+
+		h2 {
+			padding-top: 20px;
+		}
+
+		p {
+			padding-top: 30px;
+			font-size: 15px;
+			font-weight: 300;
+			line-height: 22px;
+			max-width: 600px;
+		}
+	}
+
+	.items {
+		padding: 50px 0px 50px 0px;
+		li{
+			display: flex;
+			justify-content: space-between;
+
+			figure {
+				height: 550px;
+				width: 550px;
+
+				img {
+					height: 100%;
+				}
+			}
+			article	{
+				display: flex;
+				align-items: center;
+
+				h2 {
+					padding-top: 20px;
+				}
+
+				p {
+					padding-top: 30px;
+					font-size: 15px;
+					font-weight: 300;
+					line-height: 22px;
+					max-width: 600px;
+				}
+			}
+		}
+	}
+}
+
+#servicios {
+	max-width: 1100px;
+	margin: 0 auto;
+
+	#cabecera {
+
+		h2 {
+			padding-top: 20px;
+		}
+
+		p {
+			padding-top: 30px;
+			font-size: 15px;
+			font-weight: 300;
+			line-height: 22px;
+			max-width: 600px;
+		}
+	}
+
+	.buttons {
+		padding: 50px 0px 50px 0px;
+		margin: 0 auto;
+		text-align: center;
+
+		li {
+			display: inline-block;
+			max-width: 18%;
+			width: 100%;
+			text-align: center;
+			padding: 10px;
+			border-bottom: 1px solid rgba(0,0,0,0.1);
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			margin: 0px 5px 0px 5px;
+			font-size: 13px;
+			transition: .3s;
+			font-weight: 600;
+		}
+		li:hover {
+			background-color: $colorPrimary;
+			color: white;
+			transition: .3s;
+		}
+	}
+
+	.content {
+		padding: 0px 0px 50px 0px;
+
+		li {
+			display: none;
+			position: relative;
+			margin: 0px 0px 80px 0px;
+
+			figure {
+				overflow: hidden;
+				height: 500px;
+				display: flex;
+				align-items: center;
+				img {
+					width: 100%;
+				}
+			}
+
+			article {
+				position: absolute;
+				left: 20px;
+				bottom: -50px;
+				max-width: 70%;
+				background-color: white;
+				padding: 50px;
+				box-sizing: border-box;
+				box-shadow: 10px 10px 26px -16px rgba(0,0,0,0.26);
+
+				h2 {
+					font-weight: 800;
+				}
+
+				p {
+					b {
+						color: $colorPrimary;
+						font-weight: 600;
+					}
+					margin-top: 10px;
+					font-size: 14px;
+					line-height: 22px;
+				}
+			}
+
+		}
+		#c1 {
+			display: block;
+		}
+	}
+}
+
 // proyectos
 #proyectos {
 
@@ -803,6 +962,10 @@ footer {
 			img {
 				min-height: 100%;
 				min-width: 100%;
+			}
+
+			a {
+				color: white !important;
 			}
 
 			section {

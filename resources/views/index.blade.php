@@ -7,33 +7,25 @@
     @include('layout.header-default')
     
     <ul id="banner">
+        @foreach($projects as $project)
         <li>
             <figure>
-                <img src="https://images.pexels.com/photos/1068523/pexels-photo-1068523.jpeg" alt="">
+                <img src="/uploads/projects/{{ $project->firstPicture->first()->picture }}" alt="">
             </figure>
             <section class="content">
                 <section>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus assumenda consectetur cum deleniti dolorum earum fuga ipsum magnam maxime modi molestias nesciunt nobis</p>
+                    <h2>{{ $project->name }}</h2>
+                    <p>{{ $project->description }}</p>
                     <i class="fa fa-plus icon" aria-hidden="true"></i>
                 </section>
             </section>
         </li>
-        <li>
-            <figure>
-                <img src="https://wallpapertag.com/wallpaper/full/3/5/d/119537-business-wallpaper-2560x1440-for-iphone-7.jpg" alt="">
-            </figure>
-            <section class="content">
-                <section>
-                    <p>Ab accusamus assumenda consectetur cum deleniti dolorum earum fuga ipsum magnam maxime modi molestias nesciunt nobis</p>
-                    <i class="fa fa-plus icon" aria-hidden="true"></i>
-                </section>
-            </section>
-        </li>
+        @endforeach
     </ul>
 
     <section id="productos">
         <section class="content">
-            <h2>__ Productos</h2>
+            <h2>::: Productos</h2>
             <section>
                 <ol class="opciones">
                     <li class="b-op1">Oficinas</li>
@@ -77,7 +69,7 @@
     </section>
 
     <section id="portfolio-index">
-        <h2>__ Nuestros Trabajos</h2>
+        <h2>::: Nuestros Trabajos</h2>
         <ul class="portfolio-ul">
             @foreach ($projects as $project)
                 <li>
@@ -102,7 +94,7 @@
     </section>
 
     <section id="blog-index">
-        <h2>__ Últimas noticias</h2>
+        <h2>::: Últimas noticias</h2>
         <ul>
             @foreach ($blogs as $blog)
             <li>

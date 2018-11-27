@@ -1,6 +1,6 @@
 @extends('layout.default')
 
-<?php $title = 'Veco'; ?>
+<?php $title = $project->name . '- Veco'; ?>
 
 @section('content')
 
@@ -19,7 +19,7 @@
 
         <ul class="map">
             <li><a href="/">Inicio</a> \</li>
-            <li><a href="/projects">Proyectos</a> \</li>
+            <li><a href="/proyectos">Proyectos</a> \</li>
             <li><a href="#">{{ $project->name }}</a></li>
         </ul>
 

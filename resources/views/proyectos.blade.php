@@ -1,6 +1,6 @@
 @extends('layout.default')
 
-<?php $title = 'Veco'; ?>
+<?php $title = 'Proyectos - Veco'; ?>
 
 @section('content')
 
@@ -19,10 +19,10 @@
             <li>
                 <img src="uploads/projects/{{ $project->firstPicture->first()->picture }}" alt="">
                 <section>
-                    <div>
+                    <a href="proyecto/{{ $project->id }}"><div>
                         <h3>{{ $project->name }}</h3>
                         <h4>{{ $project->place }} / {{ $project->date }}</h4>
-                    </div>
+                    </div></a>
                 </section>
             </li>
             @endforeach

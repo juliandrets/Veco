@@ -1,6 +1,6 @@
 @extends('layout.default')
 
-<?php $title = 'Veco'; ?>
+<?php $title = 'Noticias - Veco'; ?>
 
 @section('content')
 

@@ -29,13 +29,14 @@
 				<i class="fa fa-close" aria-hidden="true"></i>
 			</div>
 			<ul>
-				<li><a href="">Home</a></li>
-				<li><a href="">Productos</a></li>
-				<li><a href="">Servicios</a></li>
-				<li><a href="">Obras Realizadas</a></li>
-				<li><a href="">Sobre Veco</a></li>
-				<li><a href="">Noticias</a></li>
-				<li><a href="">Contacto</a></li>
+				<li><a href="/">Home</a></li>
+				<li><a href="/productos">Productos</a></li>
+				<li><a href="/servicios">Servicios</a></li>
+				<li><a href="#">Tienda</a></li>
+				<li><a href="/proyectos">Obras Realizadas</a></li>
+				<li><a href="/nosotros">Sobre Veco</a></li>
+				<li><a href="/noticias">Noticias</a></li>
+				<li><a href="/contacto">Contacto</a></li>
 			</ul>
 		</section>
 	</section>

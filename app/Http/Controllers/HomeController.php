@@ -8,21 +8,12 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+
     public function __construct()
     {
         //$this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $projects = Project::orderBy('id', 'desc')->take(5)->get();
@@ -32,6 +23,16 @@ class HomeController extends Controller
             'projects'  => $projects,
             'blogs'     => $blogs
         ]);
+    }
+
+    public function about()
+    {
+        return view('nosotros');
+    }
+
+    public function services()
+    {
+        return view('servicios');
     }
 
 }

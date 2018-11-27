@@ -10,6 +10,7 @@ use App\Project;
 use App\Subcategory;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Log;
 use Intervention\Image\ImageManagerStatic as Image;
 
 
@@ -51,24 +52,26 @@ class ProjectController extends Controller
 
         $project->save();
 
-        $pictures = $request->file('pictures');
+        $project = Project::orderBy('id', 'desc')->first();
 
-        foreach ((array) $pictures as $picture) {
-            $image = $picture;
-            $name = time() . '.' . $image->getClientOriginalExtension();
+        $pictures = $request->file('pictures');
+        $count = 0;
+
+        foreach ($pictures as $image) {
+            $count++;
+            $name = time() . $count .  '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('/uploads/projects/');
 
             list($width, $height) = getimagesize($image);
+
             $tumbImage = Image::make($image->getRealPath());
             $tumbImage->resize($width / 2, $height / 2);
 
             $image->move($destinationPath, $name);
             $tumbImage->save(public_path('/uploads/projects/tumb/' . $name));
 
-            $project = Project::orderBy('created_at', 'desc')->first();
-
             $projectPicture = new Picture([
-                'picture'    => $name,
+                'picture' => $name,
                 'project_id' => $project->id,
             ]);
 

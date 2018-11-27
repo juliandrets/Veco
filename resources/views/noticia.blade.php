@@ -1,6 +1,6 @@
 @extends('layout.default')
 
-<?php $title = 'Veco'; ?>
+<?php $title = $blog->name . '- Veco'; ?>
 
 @section('content')
 
@@ -19,7 +19,7 @@
 
         <ul class="map">
             <li><a href="/">Inicio</a> \</li>
-            <li><a href="/news">Noticias</a> \</li>
+            <li><a href="/noticias">Noticias</a> \</li>
             <li><a href="#">{{ $blog->name }}</a></li>
         </ul>
 
