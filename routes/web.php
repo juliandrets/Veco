@@ -32,6 +32,18 @@ Route::get('adm', 'AdminPanelController@index')->middleware('auth', 'role:admin'
 	Route::get('adm/pictures/{id}/edit', 'PictureController@edit')->middleware('auth', 'role:admin');
 	Route::post('adm/pictures/{id}/update', 'PictureController@update')->middleware('auth', 'role:admin');
 
+	// Products Categories
+    Route::resource('adm/products-categories', 'ProductCategoryController')->middleware('auth', 'role:admin');
+    Route::get('adm/products-categories/{id}/delete', 'ProductCategoryController@destroy')->middleware('auth', 'role:admin');
+    Route::get('adm/products-categories/{id}/edit', 'ProductCategoryController@edit')->middleware('auth', 'role:admin');
+    Route::post('adm/products-categories/{id}/update', 'ProductCategoryController@update')->middleware('auth', 'role:admin');
+
+	// Products
+    Route::resource('adm/products', 'ProductController')->middleware('auth', 'role:admin');
+    Route::get('adm/products/{id}/delete', 'ProductController@destroy')->middleware('auth', 'role:admin');
+    Route::get('adm/products/{id}/edit', 'ProductController@edit')->middleware('auth', 'role:admin');
+    Route::post('adm/products/{id}/update', 'ProductController@update')->middleware('auth', 'role:admin');
+
 // Auth ------------------------------------------------------------------
 Auth::routes();
 

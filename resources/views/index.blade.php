@@ -28,32 +28,20 @@
             <h2>::: Productos</h2>
             <section>
                 <ol class="opciones">
-                    <li class="b-op1">Oficinas</li>
-                    <li class="b-op2">Tienda</li>
-                    <li class="b-op3">Espacios Públicos</li>
-                    <li class="b-op4">Hogar</li>
+                    @foreach($productCategories as $category)
+                        <li class="b-op{{ $loop->iteration }}">{{ $category->name }}</li>
+                    @endforeach
                 </ol>
                 <ul class="opcionContent">
-                    <li class="op1">
-                        <article>
-                            <p>1Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet dolorem error nulla quos sunt. Accusantium consectetur corporis delectus dolores eligendi, hic, illumor sit amet, consectetur adipisicing elit. Amet dolorem error nulla quos sunt. Accusantium consectetur corporis delectus dolores eligendi, hic, illum impedit natus nihil, non officiis quo sit tempore.</p>
-                        </article>
-                    </li>
-                    <li class="op2">
-                        <article>
-                            <p>2Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet dolorem error nulla quos sunt. Accusantium consectetur corporis delectus dolores eligendi, hic, illumor sit amet, consectetur adipisicing elit. Amet dolorem error nulla quos sunt. Accusantium consectetur corporis delectus dolores eligendi, hic, illum impedit natus nihil, non officiis quo sit tempore.</p>
-                        </article>
-                    </li>
-                    <li class="op3">
-                        <article>
-                            <p>3Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet dolorem error nulla quos sunt. Accusantium consectetur corporis delectus dolores eligendi, hic, illumor sit amet, consectetur adipisicing elit. Amet dolorem error nulla quos sunt. Accusantium consectetur corporis delectus dolores eligendi, hic, illum impedit natus nihil, non officiis quo sit tempore.</p>
-                        </article>
-                    </li>
-                    <li class="op4">
-                        <article>
-                            <p>4Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet dolorem error nulla quos sunt. Accusantium consectetur corporis delectus dolores eligendi, hic, illumor sit amet, consectetur adipisicing elit. Amet dolorem error nulla quos sunt. Accusantium consectetur corporis delectus dolores eligendi, hic, illum impedit natus nihil, non officiis quo sit tempore.</p>
-                        </article>
-                    </li>
+                    @foreach($productCategories as $category)
+                        <?php $count = 1; ?>
+                        <li class="op{{ $loop->iteration }} }}">
+                            <article>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet dolorem error nulla quos sunt. Accusantium consectetur corporis delectus dolores eligendi, hic, illumor sit amet, consectetur adipisicing elit. Amet dolorem error nulla quos sunt. Accusantium consectetur corporis delectus dolores eligendi, hic, illum impedit natus nihil, non officiis quo sit tempore.</p>
+                            </article>
+                        </li>
+                        <?php $count++; ?>
+                    @endforeach
                 </ul>
             </section>
         </section>
@@ -99,12 +87,12 @@
             @foreach ($blogs as $blog)
             <li>
                 <figure>
-                    <section class="hover"><a href="/news/{{ $blog->id }}"><i class="fa fa-plus" aria-hidden="true"></i></a></section>
+                    <section class="hover"><a href="/noticia/{{ $blog->id }}"><i class="fa fa-plus" aria-hidden="true"></i></a></section>
                     <img src="/uploads/blog/tumb/{{ $blog->firstPicture->first()->picture }}" alt="">
                 </figure>
                 <h3>{{ $blog->name }}</h3>
                 <p>{{ $blog->description }}</p>
-                <a href="/news/{{ $blog->id }}">Descubre más</a>
+                <a href="/noticia/{{ $blog->id }}">Descubre más</a>
             </li>
             @endforeach
         </ul>

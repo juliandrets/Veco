@@ -19,6 +19,12 @@
 				<li class="menu-item-has-children">
 					<a href="/adm/blog"> <i class="menu-icon fa fa-newspaper-o"></i>Blog</a>
 				</li>
+				<li class="menu-item-has-children">
+					<a href="/adm/products"> <i class="menu-icon fa fa-newspaper-o"></i>Productos</a>
+				</li>
+				<li class="menu-item-has-children">
+					<a href="/adm/products-categories"> <i class="menu-icon fa fa-newspaper-o"></i>Categorias Productos</a>
+				</li>
 			</ul>
 		</div><!-- /.navbar-collapse -->
 	</nav>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Blog;
+use App\ProductCategory;
 use App\Project;
 use Illuminate\Http\Request;
 
@@ -18,9 +19,11 @@ class HomeController extends Controller
     {
         $projects = Project::orderBy('id', 'desc')->take(5)->get();
         $blogs = Blog::orderBy('id', 'desc')->take(3)->get();
+        $productCategories = ProductCategory::orderBy('id', 'desc')->get();
 
         return view('index', [
             'projects'  => $projects,
+            'productCategories'  => $productCategories,
             'blogs'     => $blogs
         ]);
     }
