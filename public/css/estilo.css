@@ -11,6 +11,25 @@ body {
   font-family: 'Roboto', sans-serif;
   background-color: #F3F3F3; }
 
+.aviso {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid #000;
+  font-size: 15px;
+  font-weight: 300;
+  margin-bottom: 20px;
+  border-radius: 3px; }
+  .aviso i {
+    margin-right: 4px; }
+
+.aviso-success {
+  border-color: green;
+  background-color: rgba(0, 128, 0, 0.2);
+  color: green; }
+
 .map {
   padding-bottom: 30px; }
   .map li {
@@ -119,13 +138,35 @@ header #menu {
         font-size: 30px; }
 
 footer {
-  max-width: 1200px;
+  max-width: 95%;
   margin: 0 auto; }
   footer .bg {
     height: 250px;
     background-image: url("../img/footer/bg.jpg");
     background-size: cover;
-    background-position: top; }
+    background-position: top;
+    position: relative; }
+    footer .bg #newsletter {
+      background-color: #333;
+      color: white;
+      position: absolute;
+      top: 0px;
+      left: 20px;
+      padding: 60px 30px 30px 30px;
+      box-sizing: border-box; }
+      footer .bg #newsletter h2 {
+        font-size: 16px;
+        font-weight: 400; }
+      footer .bg #newsletter h3 {
+        font-size: 22px;
+        font-weight: 700;
+        margin-top: 5px; }
+        footer .bg #newsletter h3 i {
+          margin-left: 20px;
+          transition: .3s; }
+    footer .bg #newsletter:hover > h3 i {
+      color: #E9302B;
+      transition: .3s; }
   footer .footbar {
     background-color: #E9302B;
     color: white;
@@ -655,6 +696,67 @@ footer {
             font-weight: 600; }
     #servicios .content #c1 {
       display: block; }
+
+#newsletter-section #cabecera {
+  padding-bottom: 50px; }
+  #newsletter-section #cabecera h2 {
+    padding-top: 20px;
+    max-width: 1100px;
+    margin: 0 auto; }
+#newsletter-section #suscripcion {
+  background-color: white;
+  max-width: 95%;
+  margin: 0 auto;
+  padding: 50px 0px 50px 0px; }
+  #newsletter-section #suscripcion form {
+    max-width: 900px;
+    margin: 0 auto; }
+    #newsletter-section #suscripcion form .inputs {
+      display: flex;
+      justify-content: space-between; }
+      #newsletter-section #suscripcion form .inputs div {
+        width: 100%;
+        max-width: 48%; }
+      #newsletter-section #suscripcion form .inputs p {
+        font-weight: 400;
+        margin-bottom: 4px;
+        font-size: 15px; }
+      #newsletter-section #suscripcion form .inputs input {
+        width: 100%;
+        border-radius: 3px;
+        padding: 10px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        border: none;
+        border: 1px solid #ddd; }
+    #newsletter-section #suscripcion form hr {
+      height: 1px;
+      border: none;
+      background-color: rgba(0, 0, 0, 0.1);
+      margin: 20px 0px 20px 0px; }
+    #newsletter-section #suscripcion form .accept {
+      display: flex;
+      justify-content: space-between; }
+      #newsletter-section #suscripcion form .accept input {
+        width: 60px; }
+      #newsletter-section #suscripcion form .accept p {
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 300; }
+    #newsletter-section #suscripcion form button {
+      background-color: #333;
+      padding: 8px 17px 8px 17px;
+      color: white;
+      font-weight: 400;
+      border: none;
+      text-transform: uppercase; }
+    #newsletter-section #suscripcion form button:hover {
+      background-color: #E9302B; }
+    #newsletter-section #suscripcion form .disabled {
+      opacity: .5; }
+    #newsletter-section #suscripcion form .disabled:hover {
+      background-color: #333 !important; }
 
 #proyectos #cabecera {
   max-width: 1000px;

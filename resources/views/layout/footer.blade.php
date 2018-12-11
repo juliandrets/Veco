@@ -1,6 +1,9 @@
 <footer>
     <section class="bg">
-
+        <a href="newsletter"><section id="newsletter">
+            <h2>Suscribete al</h2>
+            <h3>Newsletter de Veco <i class="fa fa-angle-right" aria-hidden="true"></i></h3>
+        </section></a>
     </section>
     <section class="footbar">
         <p class="copy">© 2018 Veco</p>

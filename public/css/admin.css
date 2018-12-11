@@ -179,4 +179,8 @@ aside {
     #admin-panel-body form button {
       margin-top: 10px; }
 
+.acciones-tabla li {
+  display: inline-block;
+  list-style: none; }
+
 /*# sourceMappingURL=admin.css.map */

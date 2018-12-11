@@ -8,6 +8,7 @@ a {
 	text-decoration: none;
 }
 
+
 .pagination {
 	text-align: center;
 	margin-top: 20px;
@@ -179,4 +180,12 @@ aside {
 		}
 	}
 
+}
+
+
+.acciones-tabla {
+	li {
+		display: inline-block;
+		list-style: none;
+	}
 }

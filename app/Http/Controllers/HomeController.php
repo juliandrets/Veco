@@ -38,4 +38,9 @@ class HomeController extends Controller
         return view('servicios');
     }
 
+    public function newsletter()
+    {
+        return view('newsletter');
+    }
+
 }

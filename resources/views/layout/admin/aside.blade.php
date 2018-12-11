@@ -20,10 +20,13 @@
 					<a href="/adm/blog"> <i class="menu-icon fa fa-newspaper-o"></i>Blog</a>
 				</li>
 				<li class="menu-item-has-children">
-					<a href="/adm/products"> <i class="menu-icon fa fa-newspaper-o"></i>Productos</a>
+					<a href="/adm/products"> <i class="menu-icon fa fa-cube"></i>Productos</a>
 				</li>
 				<li class="menu-item-has-children">
-					<a href="/adm/products-categories"> <i class="menu-icon fa fa-newspaper-o"></i>Categorias Productos</a>
+					<a href="/adm/products-categories"> <i class="menu-icon fa fa-cube"></i>Categorias Productos</a>
+				</li>
+				<li class="menu-item-has-children">
+					<a href="/adm/newsletter-emails"> <i class="menu-icon fa fa-newspaper-o"></i>Newsletter</a>
 				</li>
 			</ul>
 		</div><!-- /.navbar-collapse -->

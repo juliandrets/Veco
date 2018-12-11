@@ -44,6 +44,19 @@ Route::get('adm', 'AdminPanelController@index')->middleware('auth', 'role:admin'
     Route::get('adm/products/{id}/edit', 'ProductController@edit')->middleware('auth', 'role:admin');
     Route::post('adm/products/{id}/update', 'ProductController@update')->middleware('auth', 'role:admin');
 
+	// Newsletter
+        Route::get('newsletter', 'HomeController@newsletter');
+        Route::post('newsletter/suscripcion', 'NewsletterEmailController@store');
+
+        // ADM
+        Route::resource('adm/newsletter', 'NewsletterController')->middleware('auth', 'role:admin');
+        Route::get('adm/newsletter/create', 'NewsletterController@create')->middleware('auth', 'role:admin');
+
+        // Emails
+        Route::resource('adm/newsletter-emails', 'NewsletterEmailController')->middleware('auth', 'role:admin');
+        Route::get('adm/newsletter-emails/{id}/delete', 'NewsletterEmailController@destroy')->middleware('auth', 'role:admin');// Email related routes
+        Route::get('adm/newsletter/mail/send', 'MailController@send');
+
 // Auth ------------------------------------------------------------------
 Auth::routes();
 

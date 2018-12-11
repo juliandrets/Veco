@@ -22,6 +22,29 @@ body {
 	background-color: $colorFondo;
 }
 
+.aviso {
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 10px;
+	border: 1px solid #000;
+	font-size: 15px;
+	font-weight: 300;
+	margin-bottom: 20px;
+	border-radius: 3px;
+
+	i {
+		margin-right: 4px;
+	}
+}
+
+.aviso-success {
+	border-color: green;
+	background-color: rgba(green, .2);
+	color: green;
+}
+
 .map {
 	padding-bottom: 30px;
 
@@ -167,7 +190,7 @@ header {
 }
 
 footer {
-	max-width: 1200px;
+	max-width: 95%;
 	margin: 0 auto;
 
 	.bg {
@@ -175,6 +198,36 @@ footer {
 		background-image: url('../img/footer/bg.jpg');
 		background-size: cover;
 		background-position: top;
+		position: relative;
+
+		#newsletter {
+			background-color: $colorFont;
+			color: white;
+			position: absolute;
+			top: 0px;
+			left: 20px;
+			padding: 60px 30px 30px 30px;
+			box-sizing: border-box;
+
+			h2 {
+				font-size: 16px;
+				font-weight: 400;
+			}
+			h3 {
+				font-size: 22px;
+				font-weight: 700;
+				margin-top: 5px;
+
+				i {
+					margin-left: 20px;
+					transition: .3s;
+				}
+			}
+		}
+		#newsletter:hover > h3 i {
+			color: $colorPrimary;
+			transition: .3s;
+		}
 	}
 
 	.footbar {
@@ -919,6 +972,99 @@ footer {
 		}
 		#c1 {
 			display: block;
+		}
+	}
+}
+
+// newsletter
+
+#newsletter-section {
+
+	#cabecera {
+		padding-bottom: 50px;
+		h2 {
+			padding-top: 20px;
+			max-width: 1100px;
+			margin: 0 auto;
+		}
+	}
+
+	#suscripcion {
+		background-color: white;
+		max-width: 95%;
+		margin: 0 auto;
+		padding: 50px 0px 50px 0px;
+
+		form {
+			max-width: 900px;
+			margin: 0 auto;
+
+			.inputs {
+				display: flex;
+				justify-content: space-between;
+
+				div {
+					width: 100%;
+					max-width: 48%;
+				}
+
+				p {
+					font-weight: 400;
+					margin-bottom: 4px;
+					font-size: 15px;
+				}
+				input {
+					width: 100%;
+					border-radius: 3px;
+					padding: 10px;
+					-webkit-box-sizing: border-box;
+					-moz-box-sizing: border-box;
+					box-sizing: border-box;
+					border:none;
+					border:1px solid #ddd;
+				}
+			}
+
+			hr {
+				height: 1px;
+				border: none;
+				background-color: rgba(0, 0, 0, .1);
+				margin: 20px 0px 20px 0px;
+			}
+
+			.accept {
+				display: flex;
+				justify-content: space-between;
+
+				input {
+					width: 60px;
+				}
+
+				p {
+					font-size: 14px;
+					line-height: 22px;
+					font-weight: 300;
+				}
+			}
+
+			button {
+				background-color: $colorFont;
+				padding: 8px 17px 8px 17px;
+				color: white;
+				font-weight: 400;
+				border: none;
+				text-transform: uppercase;
+			}
+			button:hover {
+				background-color: $colorPrimary;
+			}
+
+			.disabled {
+				opacity: .5;
+			}
+			.disabled:hover {
+				background-color: $colorFont !important;
+			}
 		}
 	}
 }
