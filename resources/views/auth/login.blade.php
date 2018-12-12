@@ -1,6 +1,6 @@
 @extends('layout.default')
 
-<?php $title = 'TacticalSupply - Login'; ?>
+<?php $title = 'Veco - Login'; ?>
 
 @section('content')
 

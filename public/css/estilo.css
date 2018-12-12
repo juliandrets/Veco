@@ -11,6 +11,13 @@ body {
   font-family: 'Roboto', sans-serif;
   background-color: #F3F3F3; }
 
+.breadcrumbs {
+  margin-bottom: 30px; }
+  .breadcrumbs li {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 300; }
+
 .aviso {
   width: 100%;
   -webkit-box-sizing: border-box;
@@ -59,6 +66,8 @@ h2 {
   position: relative; }
 
 .pagination {
+  display: block;
+  width: 100%;
   text-align: center;
   margin-top: 40px; }
   .pagination li {
@@ -67,14 +76,14 @@ h2 {
     border: 1px solid #ddd;
     border-radius: 1000px;
     width: 40px;
-    height: 40px;
-    line-height: 40px; }
+    height: 40px !important;
+    line-height: 40px;
+    padding-bottom: auto; }
   .pagination li:hover {
-    border-color: #0088e8; }
+    border-color: #E9302B; }
   .pagination .active {
-    background-color: #0088e8;
-    color: white;
-    border-color: #0088e8; }
+    color: #E9302B;
+    border-color: #E9302B; }
 
 header nav {
   max-width: 1100px;
@@ -349,51 +358,51 @@ footer {
         color: #E9302B;
         font-size: 45px; }
 
-#productos {
+#productos-index {
   max-width: 1200px;
   margin: 0 auto;
   overflow: hidden; }
-  #productos .content {
+  #productos-index .content {
     width: 100%;
     max-width: 65%;
     float: left;
     padding-top: 90px; }
-    #productos .content section {
+    #productos-index .content section {
       margin-top: 50px;
       display: flex;
       justify-content: space-between; }
-      #productos .content section .opciones {
+      #productos-index .content section .opciones {
         width: 100%;
         max-width: 250px; }
-        #productos .content section .opciones li {
+        #productos-index .content section .opciones li {
           font-size: 28px;
           font-weight: 100;
           border-bottom: 1px solid;
           border-color: rgba(0, 0, 0, 0.1);
           padding: 10px 0px 10px 0px; }
-        #productos .content section .opciones .active {
+        #productos-index .content section .opciones .active {
           font-weight: 300 !important; }
-      #productos .content section .opcionContent {
+      #productos-index .content section .opcionContent {
         max-width: 700px;
         padding: 0px 50px 0px 30px;
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box; }
-        #productos .content section .opcionContent li article p {
+        #productos-index .content section .opcionContent li article p {
           font-size: 16px;
           line-height: 25px; }
-  #productos aside {
+  #productos-index aside {
     width: 100%;
     max-width: 35%;
     float: right; }
-    #productos aside ul li {
+    #productos-index aside ul li {
       overflow: hidden;
       width: 100%;
       text-align: center; }
-      #productos aside ul li img {
+      #productos-index aside ul li img {
         height: 100%;
         max-height: 65vh; }
-  #productos .op2, #productos .op3, #productos .op4, #productos .op5 {
+  #productos-index .op2, #productos-index .op3, #productos-index .op4, #productos-index .op5 {
     display: none; }
 
 #portfolio-index {
@@ -696,6 +705,109 @@ footer {
             font-weight: 600; }
     #servicios .content #c1 {
       display: block; }
+
+#productos {
+  max-width: 95%;
+  margin: 0 auto;
+  width: 100%; }
+  #productos #cabecera {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-bottom: 50px; }
+    #productos #cabecera h2 {
+      padding-top: 20px; }
+    #productos #cabecera p {
+      padding-top: 30px;
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 22px;
+      max-width: 600px; }
+  #productos .content {
+    padding: 50px 0px 50px 0px;
+    background-color: white;
+    max-width: 100%;
+    width: 100%; }
+    #productos .content .categories {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: row;
+      flex-flow: row wrap; }
+      #productos .content .categories li {
+        position: relative;
+        flex-basis: calc(33% - 20px);
+        max-width: calc(33% - 20px);
+        background-color: white;
+        height: 450px;
+        margin: 10px; }
+        #productos .content .categories li figure {
+          overflow: hidden; }
+          #productos .content .categories li figure img {
+            position: relative;
+            height: 450px;
+            min-width: 100%;
+            transition: .3s; }
+        #productos .content .categories li section {
+          position: absolute;
+          bottom: 20px;
+          left: 0px;
+          background-color: white;
+          padding: 10px 30px 10px 10px;
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          transition: .3s; }
+          #productos .content .categories li section h2 {
+            font-weight: 100; }
+      #productos .content .categories li:hover > a figure img {
+        opacity: .2;
+        transition: .4s; }
+      #productos .content .categories li:hover > a section {
+        padding-right: 60px;
+        transition: .7s; }
+    #productos .content .products {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: row;
+      flex-flow: row wrap; }
+      #productos .content .products li {
+        position: relative;
+        flex-basis: calc(33% - 20px);
+        max-width: calc(33% - 20px);
+        background-color: white;
+        height: 330px;
+        margin: 10px; }
+        #productos .content .products li figure {
+          overflow: hidden;
+          display: flex;
+          justify-content: center; }
+          #productos .content .products li figure img {
+            position: relative;
+            height: 330px;
+            transition: .3s; }
+        #productos .content .products li section {
+          position: absolute;
+          bottom: 20px;
+          left: 0px;
+          background-color: white;
+          padding: 10px 30px 10px 10px;
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          transition: .3s; }
+          #productos .content .products li section h2 {
+            font-weight: 100;
+            font-size: 18px; }
+      #productos .content .products li:hover > a figure img {
+        opacity: .2;
+        transition: .4s; }
+      #productos .content .products li:hover > a section {
+        padding-right: 60px;
+        transition: .7s; }
+  #productos #products {
+    padding: 20px 0px 50px 0px !important;
+    background-color: #F3F3F3 !important; }
 
 #newsletter-section #cabecera {
   padding-bottom: 50px; }

@@ -65,7 +65,7 @@ class ProductController extends Controller
 
             $projectPicture = new Picture([
                 'picture' => $name,
-                'product_category_id' => $project->id,
+                'product_id' => $project->id,
             ]);
 
             $projectPicture->save();

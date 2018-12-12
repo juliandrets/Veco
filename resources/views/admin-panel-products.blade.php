@@ -42,11 +42,11 @@
                             <div class="alert  alert-success alert-dismissible fade show" role="alert">
                                 <span class="badge badge-pill badge-success"><i class="fa fa-check"></i></span>
                                 @if($event == 'create')
-                                    La catgoria fue creada exitosamente.
+                                    El producto fue creado exitosamente.
                                 @elseif($event == 'update')
-                                    La catgoria fue editada exitosamente.
+                                    El producto fue editado exitosamente.
                                 @elseif($event == 'delete')
-                                    La catgoria fue borrada exitosamente.
+                                    El producto fue borrado exitosamente.
                                 @endif
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
@@ -77,7 +77,13 @@
                                     <tbody>
                                     @foreach($products as $product)
                                         <tr>
-                                            <th scope="row"> <figure><img src="/uploads/products/tumb/" alt=""></figure></th>
+                                            <th scope="row">
+                                                <figure style="overflow: hidden; height: 40px; width: 40px;">
+                                                    @if($product->picture)
+                                                        <img src="/uploads/products/tumb/{{ $product->picture->picture }}" alt="">
+                                                    @endif
+                                                </figure>
+                                            </th>
                                             <td>{{ $product->name }}</td>
                                             <td>{{ $product->category->name }}</td>
                                             <td>

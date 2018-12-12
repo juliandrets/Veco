@@ -39,6 +39,8 @@ Route::get('adm', 'AdminPanelController@index')->middleware('auth', 'role:admin'
     Route::post('adm/products-categories/{id}/update', 'ProductCategoryController@update')->middleware('auth', 'role:admin');
 
 	// Products
+    Route::get('productos', 'HomeController@products');
+    Route::get('productos/{name}', 'HomeController@showProducts');
     Route::resource('adm/products', 'ProductController')->middleware('auth', 'role:admin');
     Route::get('adm/products/{id}/delete', 'ProductController@destroy')->middleware('auth', 'role:admin');
     Route::get('adm/products/{id}/edit', 'ProductController@edit')->middleware('auth', 'role:admin');

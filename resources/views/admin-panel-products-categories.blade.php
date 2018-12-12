@@ -68,7 +68,7 @@
                                 <ul id="sliders" class="col-md-12">
                                     @foreach($productsCategories as $category)
                                         <li>
-                                            <figure><img src="/uploads/productsCategories/tumb/" alt=""></figure>
+                                            <figure><img src="/uploads/productsCategories/tumb/{{ $category->picture->picture }}" alt=""></figure>
                                             <section>
                                                 <h2>{{ $category->name }}</h2>
                                             </section>

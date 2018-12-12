@@ -23,7 +23,7 @@
         @endforeach
     </ul>
 
-    <section id="productos">
+    <section id="productos-index">
         <section class="content">
             <h2>::: Productos</h2>
             <section>
@@ -37,7 +37,7 @@
                         <?php $count = 1; ?>
                         <li class="op{{ $loop->iteration }} }}">
                             <article>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet dolorem error nulla quos sunt. Accusantium consectetur corporis delectus dolores eligendi, hic, illumor sit amet, consectetur adipisicing elit. Amet dolorem error nulla quos sunt. Accusantium consectetur corporis delectus dolores eligendi, hic, illum impedit natus nihil, non officiis quo sit tempore.</p>
+                                <p>{{ $category->description }}</p>
                             </article>
                         </li>
                         <?php $count++; ?>
@@ -47,11 +47,9 @@
         </section>
         <aside>
             <ul>
-                <li class="op1"><img src="https://www.tecnospa.com/ContentsFiles/preview_home.jpg" alt=""></li>
-                <li class="op2"><img src="https://www.tecnospa.com/ContentsFiles/preview_partitions.jpg" alt=""></li>
-                <li class="op3"><img src="https://www.tecnospa.com/ContentsFiles/preview_iot.jpg" alt=""></li>
-                <li class="op4"><img src="https://www.tecnospa.com/ContentsFiles/preview_work(1).jpg" alt=""></li>
-                <li class="op5"><img src="https://www.tecnospa.com/ContentsFiles/preview_public(0).jpg" alt=""></li>
+                @foreach($productCategories as $category)
+                    <li class="op{{ $loop->iteration }}"><img src="/uploads/productsCategories/{{ $category->picture->picture }}" alt=""></li>
+                @endforeach
             </ul>
         </aside>
     </section>
