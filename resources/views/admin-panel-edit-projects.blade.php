@@ -50,7 +50,7 @@
 
                             <br>
                             <div class="col-sm-12">
-                                @if($event = app('request')->input('event'))
+                                @if($errors->any())
                                     <div class="alert  alert-danger alert-dismissible fade show" role="alert">
                                         <span class="badge badge-pill badge-danger"><i class="fa fa-close"></i></span>
                                         La imagen de portada es obligatoria.
@@ -67,18 +67,19 @@
                                     <div class="form-group">
                                         <label class=" form-control-label">Imagenes</label>
 
-                                        <ul class="img-producto-form">
-                                            @foreach ($project->pictures as $picture)
-                                                <li>
-                                                    <img src="/uploads/projects/tumb/{{ $picture->picture }}" alt="">
-                                                    <a href="/adm/pictures/{{ $picture->id }}/delete"><div class="bb"><i class="fa fa-trash"></i></div></a>
-                                                </li>
-                                            @endforeach
-                                        </ul>
+                                        @if (count($project->pictures))
+                                            <ul class="img-producto-form">
+                                                @foreach ($project->pictures as $picture)
+                                                    <li>
+                                                        <img src="/uploads/projects/tumb/{{ $picture->picture }}" alt="">
+                                                        <a href="/adm/pictures/{{ $picture->id }}/delete"><div class="bb"><i class="fa fa-trash"></i></div></a>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        @endif
 
                                         <div class="input-group">
-                                            <div class="input-group-addon"><i class="fa fa-image"></i></div>
-                                            <input class="form-control" type="file" name="pictures[]" accept="image/*" multiple style="font-size: 12px">
+                                            <input id="input-b1" type="file" class="file" name="pictures[]" multiple data-theme="fas">
                                         </div>
                                         <small class="form-text text-muted">Preferentemente formato JPG.</small>
                                     </div>
@@ -134,7 +135,7 @@
                                         <label class=" form-control-label">Arquitectos</label>
                                         <div class="input-group">
                                             <div class="input-group-addon"><i class="fa fa-external-link-square"></i></div>
-                                            <input class="form-control" type="text" name="arquitectes" placeholder="Nombre de grupo de arquitectos" value="{{ $project->arquitectes }}" required>
+                                            <input class="form-control" type="text" name="arquitectes" placeholder="Nombre de grupo de arquitectos" value="{{ $project->arquitectes }}">
                                         </div>
                                         <small class="form-text text-muted">Arquitectos de la obra</small>
                                     </div>
@@ -177,11 +178,31 @@
     <script src="{{ asset('admin/js/plugins.js') }}"></script>
     <script src="{{ asset('admin/js/main.js') }}"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#bootstrap-data-table-export').DataTable();
-        } );
-    </script>
+    <link href="{{ asset('admin/js/upload/css/fileinput.css') }}" media="all" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('admin/js/upload/themes/explorer-fas/theme.css') }}" media="all" rel="stylesheet" type="text/css"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="{{ asset('admin/js/upload/js/plugins/sortable.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('admin/js/upload/js/fileinput.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('admin/js/upload/js/locales/fr.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('admin/js/upload/js/locales/es.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('admin/js/upload/themes/fas/theme.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('admin/js/upload/themes/explorer-fas/theme.js') }}" type="text/javascript"></script>
+    </head>
+
+    <script>
+        // with plugin options
+        $("#input-b1").fileinput({
+            theme: 'fas',
+            showUpload: false,
+            language: 'es',
+            maxFileCount: 7,
+            allowedFileExtensions: ["jpg", "gif", "png", "txt"],
+            maxFilePreviewSize: 10240,
+            browseOnZoneClick: true,
+
+        });
+    </script>\
 
     @include('layout/admin/validaciones')
 

@@ -16,7 +16,8 @@
                 <section>
                     <h2>{{ $project->name }}</h2>
                     <p>{{ $project->description }}</p>
-                    <i class="fa fa-plus icon" aria-hidden="true"></i>
+
+                    <a href="/proyecto/{{ $project->id }}" class="link">Ver proyecto <i class="fa fa-angle-right" aria-hidden="true"></i></a>
                 </section>
             </section>
         </li>
@@ -29,7 +30,7 @@
             <section>
                 <ol class="opciones">
                     @foreach($productCategories as $category)
-                        <li class="b-op{{ $loop->iteration }}">{{ $category->name }}</li>
+                        <li class="b-op{{ $loop->iteration }}">/ {{ $category->name }}</li>
                     @endforeach
                 </ol>
                 <ul class="opcionContent">
@@ -59,7 +60,7 @@
         <ul class="portfolio-ul">
             @foreach ($projects as $project)
                 <li>
-                    <a href="/project/{{ $project->id }}">
+                    <a href="/proyecto/{{ $project->id }}">
                         <figure>
                             <img src="/uploads/projects/{{$project->firstPicture->first()->picture}}" alt="">
                         </figure>
@@ -79,6 +80,7 @@
         </ul>
     </section>
 
+    @if (count($blogs))
     <section id="blog-index">
         <h2>::: Últimas noticias</h2>
         <ul>
@@ -95,6 +97,7 @@
             @endforeach
         </ul>
     </section>
+    @endif
 
     <!-- Incluyo el footer y los script -->
     @include('layout.footer')

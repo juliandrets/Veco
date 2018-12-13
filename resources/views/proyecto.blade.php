@@ -35,7 +35,7 @@
             </p>
         </section>
         <aside>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.0167132768424!2d-58.383759084331516!3d-34.60373888045957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4aa9f0a6da5edb%3A0x11bead4e234e558b!2sObelisco!5e0!3m2!1ses!2sar!4v1541542162429"  frameborder="0" style="border:0"></iframe>
+            <iframe src="{{ $project->maps }}"  frameborder="0" style="border:0"></iframe>
             <ul>
                 <li>
                     <h4>Lugar</h4>
@@ -45,10 +45,12 @@
                     <h4>Cliente</h4>
                     <h5>{{ $project->client }}</h5>
                 </li>
+                @if ($project->arquitectes)
                 <li>
                     <h4>Firma de arquitectos</h4>
                     <h5>{{ $project->arquitectes }}</h5>
                 </li>
+                @endif
                 <li>
                     <h4>Fecha</h4>
                     <h5>{{ $project->date }}</h5>

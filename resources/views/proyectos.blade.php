@@ -17,7 +17,11 @@
         <ul>
             @foreach($projects as $project)
             <li>
-                <img src="uploads/projects/{{ $project->firstPicture->first()->picture }}" alt="">
+                @if (count($project->pictures))
+                    <figure>
+                        <img src="uploads/projects/{{ $project->firstPicture->first()->picture }}" alt="">
+                    </figure>
+                @endif
                 <section>
                     <a href="proyecto/{{ $project->id }}"><div>
                         <h3>{{ $project->name }}</h3>

@@ -68,7 +68,11 @@
                                 <ul id="sliders">
                                     @foreach($projects as $project)
                                         <li>
-                                            <figure><img src="/uploads/projects/tumb/{{ $project->pictures->first()->picture }}" alt=""></figure>
+                                            <figure>
+                                                @if (count($project->pictures))
+                                                    <img src="/uploads/projects/tumb/{{ $project->pictures->first()->picture }}" alt="">
+                                                @endif
+                                            </figure>
                                             <section>
                                                 <h2>{{ $project->name }}</h2>
                                             </section>

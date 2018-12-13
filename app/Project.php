@@ -15,6 +15,6 @@ class Project extends Model
     }
     public function firstPicture()
     {
-        return $this->hasMany(Picture::class, 'project_id', "id")->take(1);
+        return $this->hasMany(Picture::class, 'project_id', "id")->oldest();
     }
 }

@@ -11,6 +11,7 @@ use App\Subcategory;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Redirect;
 use Intervention\Image\ImageManagerStatic as Image;
 
 
@@ -54,28 +55,33 @@ class ProjectController extends Controller
 
         $project = Project::orderBy('id', 'desc')->first();
 
-        $pictures = $request->file('pictures');
+
         $count = 0;
 
-        foreach ($pictures as $image) {
-            $count++;
-            $name = time() . $count .  '.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('/uploads/projects/');
+        if ($request->file('pictures')) {
+            $pictures = $request->file('pictures');
+            foreach ($pictures as $image) {
+                $count++;
+                $name = time() . $count . '.' . $image->getClientOriginalExtension();
+                $destinationPath = public_path('/uploads/projects/');
 
-            list($width, $height) = getimagesize($image);
+                list($width, $height) = getimagesize($image);
 
-            $tumbImage = Image::make($image->getRealPath());
-            $tumbImage->resize($width / 2, $height / 2);
+                $tumbImage = Image::make($image->getRealPath());
+                $tumbImage->resize($width / 2, $height / 2);
 
-            $image->move($destinationPath, $name);
-            $tumbImage->save(public_path('/uploads/projects/tumb/' . $name));
+                $image->move($destinationPath, $name);
+                $tumbImage->save(public_path('/uploads/projects/tumb/' . $name));
 
-            $projectPicture = new Picture([
-                'picture' => $name,
-                'project_id' => $project->id,
-            ]);
+                $projectPicture = new Picture([
+                    'picture' => $name,
+                    'project_id' => $project->id,
+                ]);
 
-            $projectPicture->save();
+                $projectPicture->save();
+            }
+        } else {
+            return Redirect::back()->withErrors(['msg', 'La imagen principal es obligatoria.']);
         }
 
 
@@ -129,6 +135,8 @@ class ProjectController extends Controller
 
                 $projectPicture->save();
             }
+        } else {
+            return Redirect::back()->withErrors(['msg', 'La imagen principal es obligatoria.']);
         }
 
         Project::find($id)->update([

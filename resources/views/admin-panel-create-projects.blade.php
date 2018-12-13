@@ -50,10 +50,10 @@
 
                             <br>
                             <div class="col-sm-12">
-                                @if($event = app('request')->input('event'))
+                                @if($errors->any())
                                     <div class="alert  alert-danger alert-dismissible fade show" role="alert">
                                         <span class="badge badge-pill badge-danger"><i class="fa fa-close"></i></span>
-                                            La imagen de portada es obligatoria.
+                                        La imagen de portada es obligatoria.
                                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
@@ -117,13 +117,13 @@
                                             <div class="input-group-addon"><i class="fa fa-external-link-square"></i></div>
                                             <input class="form-control" type="text" name="maps" placeholder="Link de google maps" required>
                                         </div>
-                                        <small class="form-text text-muted">Copiar solo la siguiente parte: ej: </small>
+                                        <small class="form-text text-muted">Copiar solo la siguiente parte: ej:</small>
                                     </div>
                                     <div class="form-group">
                                         <label class=" form-control-label">Arquitectos</label>
                                         <div class="input-group">
                                             <div class="input-group-addon"><i class="fa fa-external-link-square"></i></div>
-                                            <input class="form-control" type="text" name="arquitectes" placeholder="Nombre de grupo de arquitectos" required>
+                                            <input class="form-control" type="text" name="arquitectes" placeholder="Nombre de grupo de arquitectos">
                                         </div>
                                         <small class="form-text text-muted">Arquitectos de la obra</small>
                                     </div>

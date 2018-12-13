@@ -6,6 +6,7 @@ Route::get('/home', 'HomeController@index');
 Route::get('index', 'HomeController@index');
 Route::get('nosotros', 'HomeController@about');
 Route::get('servicios', 'HomeController@services');
+Route::get('contacto', 'HomeController@contacto');
 
 // Admin Panel ------------------------------------------------------------
 Route::get('adm', 'AdminPanelController@index')->middleware('auth', 'role:admin');

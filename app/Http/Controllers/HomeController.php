@@ -44,6 +44,11 @@ class HomeController extends Controller
         return view('newsletter');
     }
 
+    public function contacto()
+    {
+        return view('contacto');
+    }
+
     public function products()
     {
         $categories = ProductCategory::orderBy('id', 'desc')->get();
