@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Picture;
 use App\Product;
 use App\ProductCategory;
 use Illuminate\Http\Request;
-use Intervention\Image\ImageManagerStatic as Image;
-
 
 class ProductController extends Controller
 {
+    protected $model = Product::class;
+    protected $route = '/adm/products';
     
     public function __construct()
     {
@@ -37,88 +36,58 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        $project = new Product([
+        // Create model
+        $model = new Product([
             'name' => $request->input('name'),
             'category_id' => $request->input('category_id'),
             'description' => $request->input('description')
         ]);
+        $model->save();
 
-        $project->save();
+        // Get model
+        $model = $this->model::orderBy('id', 'desc')->first();
 
-        $project = Product::orderBy('id', 'desc')->first();
-
-        $pictures = $request->file('pictures');
-        $count = 0;
-
-        foreach ($pictures as $image) {
-            $count++;
-            $name = time() . $count .  '.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('/uploads/products/');
-
-            list($width, $height) = getimagesize($image);
-
-            $tumbImage = Image::make($image->getRealPath());
-            $tumbImage->resize($width / 2, $height / 2);
-
-            $image->move($destinationPath, $name);
-            $tumbImage->save(public_path('/uploads/products/tumb/' . $name));
-
-            $projectPicture = new Picture([
-                'picture' => $name,
-                'product_id' => $project->id,
-            ]);
-
-            $projectPicture->save();
+        // Save pictures
+        if (!$this->createPictures($request, $model, 'product_id', 'products')) {
+            // Delete fail model without image
+            $model->delete();
+            return redirect()->back()->withErrors(['msg', 'La imagen principal es obligatoria']);
         }
 
+        return redirect($this->route.'?event=create');
+    }
 
-        return redirect('adm/products?event=create');
+    public function update(Request $request, $id)
+    {
+        // Get model & picture
+        $model = $this->model::find($id);
+        $picture = $model->picture->id;
+
+        // Save pictures
+        if (!$this->updatePicture($request, $id, 'product_id', 'products', $picture) && !$model->picture) {
+            return redirect()->back()->withErrors(['msg', 'La imagen principal es obligatoria']);
+        }
+
+        // Update model
+        $model->update([
+            'name' => $request->input('name'),
+            'category_id' => $request->input('category_id'),
+            'description' => $request->input('description')
+        ]);
+        
+        return redirect($this->route.'?event=update');
     }
 
     public function edit(Product $product)
     {
         $this->middleware('role:admin');
 
+        $categories = ProductCategory::orderBy('name', 'asc')->get();
+
         return view('admin-panel-edit-product', [
-            'product' => $product
+            'product'    => $product,
+            'categories' => $categories,
         ]);
-    }
-
-    public function update(Request $request, $id)
-    {
-        if ($request->hasFile('pictures')) {
-            $pictures = $request->file('pictures');
-            $count = 0;
-
-            foreach ($pictures as $image) {
-                $count++;
-                $name = time() . $count .  '.' . $image->getClientOriginalExtension();
-                $destinationPath = public_path('/uploads/productsCategories/');
-
-                list($width, $height) = getimagesize($image);
-
-                $tumbImage = Image::make($image->getRealPath());
-                $tumbImage->resize($width / 2, $height / 2);
-
-                $image->move($destinationPath, $name);
-                $tumbImage->save(public_path('/uploads/productsCategories/tumb/' . $name));
-
-                $projectPicture = new Picture([
-                    'picture' => $name,
-                    'product_category_id' => $id,
-                ]);
-
-                $projectPicture->save();
-            }
-        }
-
-        Product::find($id)->update([
-            'name' => $request->input('name'),
-            'category_id' => $request->input('category_id'),
-            'description' => $request->input('description')
-        ]);
-        
-        return redirect('adm/products?event=update');
     }
 
     public function destroy($id)

@@ -50,10 +50,10 @@
 
                             <br>
                             <div class="col-sm-12">
-                                @if($event = app('request')->input('event'))
+                                @if($errors->any())
                                     <div class="alert  alert-danger alert-dismissible fade show" role="alert">
                                         <span class="badge badge-pill badge-danger"><i class="fa fa-close"></i></span>
-                                            La imagen de portada es obligatoria.
+                                        La imagen de portada es obligatoria.
                                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>

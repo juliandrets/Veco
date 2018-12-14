@@ -67,7 +67,7 @@
                                     <div class="form-group">
                                         <label class=" form-control-label">Imagenes</label>
                                         <div class="input-group">
-                                            <input id="input-b1" type="file" class="file" name="pictures[]" multiple data-theme="fas">
+                                            <input id="input-b1" type="file" class="file" name="pictures[]" multiple data-theme="fas"  required>
                                         </div>
                                         <small class="form-text text-muted">Preferentemente formato JPG.</small>
                                     </div>

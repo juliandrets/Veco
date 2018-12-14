@@ -50,7 +50,7 @@
 
                             <br>
                             <div class="col-sm-12">
-                                @if($event = app('request')->input('event'))
+                                @if($errors->any())
                                     <div class="alert  alert-danger alert-dismissible fade show" role="alert">
                                         <span class="badge badge-pill badge-danger"><i class="fa fa-close"></i></span>
                                             La imagen de portada es obligatoria.
@@ -67,7 +67,7 @@
                                     <div class="form-group">
                                         <label class=" form-control-label">Imagenes</label>
                                         <div class="input-group">
-                                            <input id="input-b1" type="file" class="file" name="pictures[]" data-theme="fas">
+                                            <input id="input-b1" type="file" class="file" name="pictures[]" data-theme="fas" required>
                                         </div>
                                         <small class="form-text text-muted">Preferentemente formato JPG. (se muestra en la pagina principal)</small>
                                     </div>
@@ -118,9 +118,6 @@
     <!-- Right Panel -->
 
     <script src="{{ asset('admin/js/vendor/jquery-2.1.4.min.js') }}"></script>
-    <script src="{{ asset('admin/js/popper.min.js') }}"></script>
-    <script src="{{ asset('admin/js/plugins.js') }}"></script>
-    <script src="{{ asset('admin/js/main.js') }}"></script>
 
     <link href="{{ asset('admin/js/upload/css/fileinput.css') }}" media="all" rel="stylesheet" type="text/css"/>
     <link href="{{ asset('admin/js/upload/themes/explorer-fas/theme.css') }}" media="all" rel="stylesheet" type="text/css"/>

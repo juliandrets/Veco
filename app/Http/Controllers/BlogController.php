@@ -16,7 +16,9 @@ use Intervention\Image\ImageManagerStatic as Image;
 
 class BlogController extends Controller
 {
-    
+    protected $model = Blog::class;
+    protected $route = '/adm/blog';
+
     public function __construct()
     {
         $this->middleware('role:admin', ['only' => array('create', 'edit', 'destroy')]);
@@ -38,40 +40,44 @@ class BlogController extends Controller
 
     public function store(Request $request)
     {
-        $blog = new Blog([
+        $model = new $this->model([
             'name' => $request->input('name'),
             'description' => $request->input('description'),
             'text' => $request->input('text')
         ]);
 
-        $blog->save();
+        $model->save();
 
-        $pictures = $request->file('pictures');
+        // Get model
+        $model = $this->model::orderBy('id', 'desc')->first();
 
-        foreach ((array) $pictures as $picture) {
-            $image = $picture;
-            $name = time() . '.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('/uploads/blog/');
-
-            list($width, $height) = getimagesize($image);
-            $tumbImage = Image::make($image->getRealPath());
-            $tumbImage->resize($width / 2, $height / 2);
-
-            $image->move($destinationPath, $name);
-            $tumbImage->save(public_path('/uploads/blog/tumb/' . $name));
-
-            $blog = Blog::orderBy('created_at', 'desc')->first();
-
-            $blogPicture = new Picture([
-                'picture' => $name,
-                'blog_id' => $blog->id,
-            ]);
-
-            $blogPicture->save();
+        // Save pictures
+        if(!$this->createPictures($request, $model, 'blog_id', 'blog')) {
+            // Delete fail model without image
+            $model->delete();
+            return redirect()->back()->withErrors(['msg', 'La imagen principal es obligatoria']);
         }
 
+        return redirect($this->route.'?event=create');
+    }
 
-        return redirect('adm/blog?event=create');
+    public function update(Request $request, $id)
+    {
+        // Get model & picture
+        $model = $this->model::find($id);
+
+        // Save pictures
+        if(!$this->updatePictures($request, $id, 'blog_id', 'blog') && count($model->pictures) == 0) {
+            return redirect()->back()->withErrors(['msg', 'La imagen principal es obligatoria']);
+        }
+
+        $model->update([
+            'name' => $request->input('name'),
+            'description' => $request->input('description'),
+            'text' => $request->input('text')
+        ]);
+
+        return redirect($this->route.'?event=update');
     }
 
     public function show($id)
@@ -88,49 +94,15 @@ class BlogController extends Controller
         ]);
     }
 
-    public function edit(Project $blogs)
+    public function edit($id)
     {
         $this->middleware('role:admin');
 
+        $model = $this->model::find($id);
+
         return view('admin-panel-edit-blog', [
-            'blogs' => $blogs
+            'blog' => $model
         ]);
-    }
-
-    public function update(Request $request, $id)
-    {
-        if ($request->hasFile('pictures')) {
-            $pictures = $request->file('pictures');
-            foreach ((array) $pictures as $picture) {
-                $image = $picture;
-                $name = time() . '.' . $image->getClientOriginalExtension();
-                $destinationPath = public_path('/uploads/blog/');
-
-                list($width, $height) = getimagesize($image);
-                $tumbImage = Image::make($image->getRealPath());
-                $tumbImage->resize($width / 2, $height / 2);
-
-                $image->move($destinationPath, $name);
-                $tumbImage->save(public_path('/uploads/blog/tumb/' . $name));
-
-                $blog = Blog::orderBy('created_at', 'desc')->first();
-
-                $blogPicture = new Picture([
-                    'picture' => $name,
-                    'blog_id' => $blog->id,
-                ]);
-
-                $blogPicture->save();
-            }
-        }
-
-        Blog::find($id)->update([
-            'name' => $request->input('name'),
-            'description' => $request->input('description'),
-            'text' => $request->input('text')
-        ]);
-        
-        return redirect('adm/blog?event=update');
     }
 
     public function destroy($id)

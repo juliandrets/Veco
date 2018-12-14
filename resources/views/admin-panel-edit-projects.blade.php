@@ -79,7 +79,7 @@
                                         @endif
 
                                         <div class="input-group">
-                                            <input id="input-b1" type="file" class="file" name="pictures[]" multiple data-theme="fas">
+                                            <input id="input-b1" type="file" class="file" name="pictures[]" multiple data-theme="fas" @if (!$project->pictures->first()->picture) {{ "required" }} @endif>
                                         </div>
                                         <small class="form-text text-muted">Preferentemente formato JPG.</small>
                                     </div>
@@ -188,7 +188,6 @@
     <script src="{{ asset('admin/js/upload/js/locales/es.js') }}" type="text/javascript"></script>
     <script src="{{ asset('admin/js/upload/themes/fas/theme.js') }}" type="text/javascript"></script>
     <script src="{{ asset('admin/js/upload/themes/explorer-fas/theme.js') }}" type="text/javascript"></script>
-    </head>
 
     <script>
         // with plugin options
@@ -202,7 +201,7 @@
             browseOnZoneClick: true,
 
         });
-    </script>\
+    </script>
 
     @include('layout/admin/validaciones')
 
