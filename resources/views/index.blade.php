@@ -26,7 +26,7 @@
 
     <section id="productos-index">
         <section class="content">
-            <h2>::: Productos</h2>
+            <h2 class="title">::: Productos</h2>
             <section>
                 <ol class="opciones">
                     @foreach($productCategories as $category)
@@ -56,7 +56,7 @@
     </section>
 
     <section id="portfolio-index">
-        <h2>::: Nuestros Trabajos</h2>
+        <h2 class="title">::: Nuestros Trabajos</h2>
         <ul class="portfolio-ul">
             @foreach ($projects as $project)
                 <li>
@@ -82,7 +82,7 @@
 
     @if (count($blogs))
     <section id="blog-index">
-        <h2>::: Últimas noticias</h2>
+        <h2 class="title">::: Últimas noticias</h2>
         <ul>
             @foreach ($blogs as $blog)
             <li>
@@ -184,11 +184,13 @@
             speed: 500,
             fade: true,
             cssEase: 'linear',
+            arrows: false,
         });
         $('.portfolio-ul').slick({
             autoplay: true,
             infinite: true,
-            speed: 500
+            speed: 500,
+            arrows: false,
         });
         $('.next').click(function(){
             $(".portfolio-ul").slick('slickNext');

@@ -8,7 +8,7 @@
 
     <section id="productos">
         <section id="cabecera">
-            <h2>::: Productos</h2>
+            <h2 class="title">::: Productos</h2>
             <p>
                 Por favor seleccione que categoria de productos desea ver.
             </p>

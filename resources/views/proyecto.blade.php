@@ -24,7 +24,7 @@
         </ul>
 
         <section class="content">
-            <h2>__ {{ $project->name }}</h2>
+            <h2 class="title">__ {{ $project->name }}</h2>
 
             <p>
                 <strong>

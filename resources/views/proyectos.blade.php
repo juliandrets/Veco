@@ -8,7 +8,7 @@
 
     <section id="proyectos">
         <section id="cabecera">
-            <h2>__ Proyectos</h2>
+            <h2 class="title">__ Proyectos</h2>
             <p>
                 La auténtica revolución de Tecno radica en ser una «Fábrica de proyectos» líder que realiza obras únicas desde el punto de vista estético y de características técnicas. Arquitectos y contratistas internacionales de obras grandes y medianas eligen su experiencia desde más de sesenta años. Entre los proyectos especiales realizados por la empresa destacan el Parlamento Europeo de Bruselas, el aeropuerto Schiphol de Ámsterdam, el Museo Británico de Londres, el Ministerio de Justicia de París y oficinas como las sedes de Bulgari, Moleskine y el National Bank de Kuwait.
             </p>

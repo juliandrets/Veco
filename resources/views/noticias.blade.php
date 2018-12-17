@@ -7,7 +7,7 @@
     @include('layout.header-default')
 
     <section id="blog">
-        <h2>__ Últimas noticias</h2>
+        <h2 class="title">:: Últimas noticias</h2>
         <ul>
             @foreach ($blogs as $blog)
                 <li>

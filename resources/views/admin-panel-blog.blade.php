@@ -42,11 +42,11 @@
                             <div class="alert  alert-success alert-dismissible fade show" role="alert">
                                 <span class="badge badge-pill badge-success"><i class="fa fa-check"></i></span>
                                 @if($event == 'create')
-                                    La portada fue creada exitosamente.
+                                    La noticia fue creada exitosamente.
                                 @elseif($event == 'update')
-                                    La portada fue editada exitosamente.
+                                    La noticia fue editada exitosamente.
                                 @elseif($event == 'delete')
-                                    La portada fue borrada exitosamente.
+                                    La noticia fue borrada exitosamente.
                                 @endif
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
@@ -70,6 +70,7 @@
                                         <li>
                                             <figure><img src="/uploads/blog/tumb/{{ $blog->firstPicture->first()->picture }}" alt=""></figure>
                                             <section>
+                                                <div class="cantidad-fotos"><i class="fa fa-photo" aria-hidden="true"></i> {{ count($blog->pictures) }}</div>
                                                 <h2>{{ $blog->name }}</h2>
                                             </section>
                                             <ul>

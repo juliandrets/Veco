@@ -743,6 +743,170 @@
 .bg-flat-color-5 {
   background: #4dbd74; }
 
+.cantidad-fotos {
+  color: white; }
+
+.img-table {
+  position: absolute;
+  height: 30px;
+  overflow: hidden; }
+  .img-table img {
+    height: 30px; }
+
+.img-producto-form {
+  height: 150px;
+  overflow: hidden; }
+  .img-producto-form img {
+    height: 150px; }
+  .img-producto-form li {
+    display: inline-block;
+    position: relative; }
+    .img-producto-form li img {
+      height: 150px; }
+    .img-producto-form li .bb {
+      position: absolute;
+      opacity: 0px;
+      bottom: 5px;
+      right: 5px;
+      background-color: white;
+      height: 25px;
+      width: 25px;
+      text-align: center;
+      color: red;
+      border-radius: 100px; }
+      .img-producto-form li .bb i {
+        line-height: 25px; }
+
+.pagination {
+  margin-top: 40px; }
+
+.inOfert {
+  background-color: forestgreen;
+  padding: 5px;
+  box-sizing: border-box;
+  font-size: 10px;
+  color: white;
+  font-weight: 800;
+  border-radius: 5px; }
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px; }
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0; }
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s; }
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s; }
+
+input:checked + .slider {
+  background-color: #2196F3; }
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3; }
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px); }
+
+#sliders {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none; }
+  #sliders li {
+    max-width: 49%;
+    height: 250px;
+    background-color: #333;
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center; }
+    #sliders li figure {
+      position: relative;
+      display: inline-block; }
+      #sliders li figure img {
+        display: block;
+        width: 100vw; }
+    #sliders li figure:after {
+      position: absolute;
+      content: "";
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background: linear-gradient(to bottom, rgba(255, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 100%); }
+    #sliders li section {
+      position: absolute;
+      bottom: 20px;
+      left: 20px; }
+      #sliders li section h2 {
+        color: white; }
+    #sliders li ul {
+      position: absolute;
+      top: 0px;
+      right: 20px; }
+      #sliders li ul li {
+        background-color: white;
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        text-align: center;
+        border-radius: 100px;
+        margin-left: 5px; }
+        #sliders li ul li i {
+          line-height: 35px;
+          padding: 0px;
+          margin: 0px;
+          font-size: 22px; }
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px; }
+
+.slider.round:before {
+  border-radius: 50%; }
+
+.edit {
+  color: #017CFF;
+  margin-right: 4px;
+  opacity: .7; }
+
+.delete {
+  color: #E9302B;
+  opacity: .7; }
+
+.edit:hover, .delete:hover {
+  opacity: 1; }
+
 .transition {
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
@@ -882,6 +1046,7 @@ aside.left-panel {
     text-transform: uppercase;
     width: 100%; }
   .navbar .navbar-nav {
+    margin-top: 30px;
     float: none;
     position: relative; }
     .navbar .navbar-nav li {
@@ -2236,8 +2401,7 @@ header .form-inline {
           padding: 0; }
         .right-panel .content #bootstrap-data-table_wrapper .table td, .right-panel .content #bootstrap-data-table_wrapper .table th {
           padding: 5px; }
-        .right-panel .content #bootstrap-data-table_wrapper figure {
-          height: 40px;
-          overflow: hidden; }
-          .right-panel .content #bootstrap-data-table_wrapper figure img {
-            height: 40px; } }
+        .right-panel .content #bootstrap-data-table_wrapper .table {
+          border-top: 0px !important; } }
+
+/*# sourceMappingURL=style.css.map */

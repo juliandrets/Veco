@@ -79,7 +79,7 @@
                                         @endif
 
                                         <div class="input-group">
-                                            <input id="input-b1" type="file" class="file" name="pictures[]" multiple data-theme="fas" @if (!$blog->pictures->first()->picture) {{ "required" }} @endif>
+                                            <input id="input-b1" type="file" class="file" name="pictures[]" multiple data-theme="fas" @if (!$blog->pictures) {{ "required" }} @endif>
                                         </div>
                                         <small class="form-text text-muted">Preferentemente formato JPG.</small>
                                     </div>
