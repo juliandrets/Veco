@@ -68,7 +68,7 @@
                                         <label class=" form-control-label">Imagenes</label>
 
                                         @if (count($project->pictures))
-                                            <ul class="img-producto-form">
+                                            <ul class="p">
                                                 @foreach ($project->pictures as $picture)
                                                     <li>
                                                         <img src="/uploads/projects/tumb/{{ $picture->picture }}" alt="">
@@ -79,7 +79,7 @@
                                         @endif
 
                                         <div class="input-group">
-                                            <input id="input-b1" type="file" class="file" name="pictures[]" multiple data-theme="fas" @if (!$project->pictures->first()->picture) {{ "required" }} @endif>
+                                            <input id="input-b1" type="file" class="file" name="pictures[]" multiple data-theme="fas" @if (!count($project->pictures)) {{ "required" }} @endif>
                                         </div>
                                         <small class="form-text text-muted">Preferentemente formato JPG.</small>
                                     </div>
@@ -110,8 +110,7 @@
                                     <div class="form-group">
                                         <label class=" form-control-label">Texto</label>
                                         <div class="input-group">
-                                            <div class="input-group-addon"><i class="fa fa-pencil"></i></div>
-                                            <textarea class="form-control" name="text" required>{{ $project->text }}</textarea>
+                                            <textarea class="form-control" name="text" id="text" required>{{ $project->text }}</textarea>
                                         </div>
                                         <small class="form-text text-muted">Texto detallado del proyecto</small>
                                     </div>
@@ -124,12 +123,19 @@
                                         <small class="form-text text-muted">Cliente del proyecto</small>
                                     </div>
                                     <div class="form-group">
-                                        <label class=" form-control-label">Link de maps</label>
+                                        <label class=" form-control-label">Direccion Principal (para el mapa)</label>
                                         <div class="input-group">
                                             <div class="input-group-addon"><i class="fa fa-external-link-square"></i></div>
-                                            <input class="form-control" type="text" name="maps" placeholder="Link de google maps" value="{{ $project->maps }}" required>
+                                            <input class="form-control" type="text" name="maps" placeholder="Direccion principal" value="{{ $project->maps }}" required>
                                         </div>
                                         <small class="form-text text-muted">Copiar solo la siguiente parte: ej: </small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class=" form-control-label">Direcciones</label>
+                                        <div class="input-group">
+                                            <textarea class="form-control" id="adress" name="adress" placeholder="Direcciones" style="width: 100%; height: 150px" required>{{ $project->adress }}</textarea>
+                                        </div>
+                                        <small class="form-text text-muted">Copiar solo la siguiente parte: ej:</small>
                                     </div>
                                     <div class="form-group">
                                         <label class=" form-control-label">Arquitectos</label>
@@ -189,15 +195,24 @@
     <script src="{{ asset('admin/js/upload/themes/fas/theme.js') }}" type="text/javascript"></script>
     <script src="{{ asset('admin/js/upload/themes/explorer-fas/theme.js') }}" type="text/javascript"></script>
 
+
+    <script src="{{ asset('plugins/ckeditor/ckeditor.js') }}"></script>
+    <script>
+        CKEDITOR.replace( 'adress' );
+        CKEDITOR.replace( 'text' );
+        CKEDITOR.config.width = '100%';
+    </script>
+
+
     <script>
         // with plugin options
         $("#input-b1").fileinput({
             theme: 'fas',
             showUpload: false,
             language: 'es',
-            maxFileCount: 7,
+            maxFileCount: 10,
             allowedFileExtensions: ["jpg", "gif", "png", "txt"],
-            maxFilePreviewSize: 10240,
+            maxFilePreviewSize: 22500,
             browseOnZoneClick: true,
 
         });

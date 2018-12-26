@@ -72,17 +72,16 @@ h2 {
   position: relative; }
 
 .pagination {
-  display: block;
   width: 100%;
   text-align: center;
   margin-top: 40px; }
-  .pagination li {
+  .pagination .li {
     display: inline-block;
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 1000px;
     width: 40px;
-    height: 40px !important;
+    height: 40px;
     line-height: 40px;
     padding-bottom: auto; }
   .pagination li:hover {
@@ -1216,35 +1215,58 @@ footer {
 
 #banner-proyecto {
   height: 450px;
-  background-color: #333;
-  overflow: hidden; }
-  #banner-proyecto li {
-    height: 450px;
-    overflow: hidden;
+  position: relative;
+  width: 100%; }
+  #banner-proyecto .arrow {
+    position: absolute;
     display: flex;
     align-items: center;
-    justify-content: center;
+    align-content: center;
+    z-index: 999999;
+    height: 100%;
+    text-align: center; }
+    #banner-proyecto .arrow i {
+      font-size: 55px;
+      color: white;
+      padding: 0px 20px; }
+  #banner-proyecto .l {
+    left: 0px;
+    top: 0px; }
+  #banner-proyecto .r {
+    right: 0px;
+    top: 0px; }
+  #banner-proyecto ul {
+    height: 450px;
+    background-color: #333;
+    overflow: hidden;
     position: relative; }
-    #banner-proyecto li img {
-      height: 100%; }
-    #banner-proyecto li div {
-      opacity: 0;
-      transition: .4s;
-      position: absolute;
-      top: calc(50% - 30px);
-      left: calc(50% - 30px); }
-      #banner-proyecto li div i {
-        background-color: #2c97df;
-        color: white;
-        height: 60px;
-        width: 60px;
-        text-align: center;
-        line-height: 65px;
-        border-radius: 1000px;
-        font-size: 25px; }
-  #banner-proyecto li:hover > div {
-    opacity: 1;
-    transition: .4s; }
+    #banner-proyecto ul li {
+      height: 450px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative; }
+      #banner-proyecto ul li img {
+        height: 100%; }
+      #banner-proyecto ul li div {
+        opacity: 0;
+        transition: .4s;
+        position: absolute;
+        top: calc(50% - 30px);
+        left: calc(50% - 30px); }
+        #banner-proyecto ul li div i {
+          background-color: #2c97df;
+          color: white;
+          height: 60px;
+          width: 60px;
+          text-align: center;
+          line-height: 65px;
+          border-radius: 1000px;
+          font-size: 25px; }
+    #banner-proyecto ul li:hover > div {
+      opacity: 1;
+      transition: .4s; }
 
 #proyecto {
   max-width: 1000px;
@@ -1293,6 +1315,13 @@ footer {
           color: #333;
           margin-top: 6px;
           font-size: 15px; }
+        #proyecto aside ul li .adress, #proyecto aside ul li .production {
+          font-size: 11px; }
+        #proyecto aside ul li strong {
+          display: inline-block;
+          font-weight: 600;
+          font-size: 12px;
+          padding: 5px 0px; }
       #proyecto aside ul li:nth-child(1) {
         margin-top: 0px; }
     @media (max-width: 780px) {

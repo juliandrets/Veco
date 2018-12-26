@@ -51,7 +51,8 @@ class ProjectController extends Controller
             'client' => $request->input('client'),
             'arquitectes' => $request->input('arquitectes'),
             'date' => $request->input('date'),
-            'production' => $request->input('production')
+            'production' => $request->input('production'),
+            'adress' => $request->input('adress'),
         ]);
         $model->save();
 
@@ -88,7 +89,8 @@ class ProjectController extends Controller
             'client' => $request->input('client'),
             'arquitectes' => $request->input('arquitectes'),
             'date' => $request->input('date'),
-            'production' => $request->input('production')
+            'production' => $request->input('production'),
+            'adress' => $request->input('adress'),
         ]);
 
         return redirect($this->route.'?event=update');

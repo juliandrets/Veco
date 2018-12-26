@@ -31,7 +31,10 @@
             </li>
             @endforeach
         </ul>
+
     </section>
+
+    {{ $projects->links() }}
 
     <!-- Incluyo el footer y los script -->
     @include('layout.footer')

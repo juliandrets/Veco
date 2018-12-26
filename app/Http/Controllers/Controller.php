@@ -27,7 +27,11 @@ class Controller extends BaseController
                 $name = time() . $count . '.' . $image->getClientOriginalExtension();
                 $destinationPath = public_path('/uploads/'.$folder.'/');
 
-                list($width, $height) = getimagesize($image);
+                try {
+                    list($width, $height) = getimagesize($image);
+                } catch (\Exception $ex) {
+                    return false;
+                }
 
                 $tumbImage = Image::make($image->getRealPath());
                 $tumbImage->resize($width / 2, $height / 2);
@@ -51,12 +55,16 @@ class Controller extends BaseController
     protected function updatePictures($request, $id, $row, $folder)
     {
         if ($pictures = $request->file('pictures')) {
-            foreach ((array)$pictures as $picture) {
-                $image = $picture;
+            foreach ((array)$pictures as $image) {
                 $name = time() . '.' . $image->getClientOriginalExtension();
                 $destinationPath = public_path('/uploads/'.$folder.'/');
 
-                list($width, $height) = getimagesize($image);
+                try {
+                    list($width, $height) = getimagesize($image);
+                } catch (\Exception $ex) {
+                    return false;
+                }
+
                 $tumbImage = Image::make($image->getRealPath());
                 $tumbImage->resize($width / 2, $height / 2);
 
@@ -83,7 +91,12 @@ class Controller extends BaseController
                 $name = time() . '.' . $image->getClientOriginalExtension();
                 $destinationPath = public_path('/uploads/' . $folder . '/');
 
-                list($width, $height) = getimagesize($image);
+                try {
+                    list($width, $height) = getimagesize($image);
+                } catch (\Exception $ex) {
+                    return false;
+                }
+
                 $tumbImage = Image::make($image->getRealPath());
                 $tumbImage->resize($width / 2, $height / 2);
 
