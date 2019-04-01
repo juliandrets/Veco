@@ -5,7 +5,9 @@ Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
 Route::get('index', 'HomeController@index');
 Route::get('nosotros', 'HomeController@about');
-Route::get('servicios', 'HomeController@services');
+Route::get('que-hacemos', 'HomeController@queHacemos');
+//Route::get('servicios', 'HomeController@services');
+Route::get('fabrica', 'HomeController@fabrica');
 Route::get('contacto', 'HomeController@contacto');
 
 // Admin Panel ------------------------------------------------------------
@@ -42,6 +44,7 @@ Route::get('adm', 'AdminPanelController@index')->middleware('auth', 'role:admin'
 	// Products
     Route::get('productos', 'HomeController@products');
     Route::get('productos/{name}', 'HomeController@showProducts');
+    Route::get('producto/{id}', 'ProductController@show');
     Route::resource('adm/products', 'ProductController')->middleware('auth', 'role:admin');
     Route::get('adm/products/{id}/delete', 'ProductController@destroy')->middleware('auth', 'role:admin');
     Route::get('adm/products/{id}/edit', 'ProductController@edit')->middleware('auth', 'role:admin');
@@ -58,7 +61,7 @@ Route::get('adm', 'AdminPanelController@index')->middleware('auth', 'role:admin'
         // Emails
         Route::resource('adm/newsletter-emails', 'NewsletterEmailController')->middleware('auth', 'role:admin');
         Route::get('adm/newsletter-emails/{id}/delete', 'NewsletterEmailController@destroy')->middleware('auth', 'role:admin');// Email related routes
-        Route::get('adm/newsletter/mail/send', 'MailController@send');
+        Route::post('adm/newsletter/mail/send/{class}/{id}', 'MailController@send')->middleware('auth', 'role:admin');
 
 // Auth ------------------------------------------------------------------
 Auth::routes();

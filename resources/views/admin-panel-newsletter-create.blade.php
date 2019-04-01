@@ -41,17 +41,19 @@
                         @if($event = app('request')->input('event'))
                             <div class="alert  alert-success alert-dismissible fade show" role="alert">
                                 <span class="badge badge-pill badge-success"><i class="fa fa-check"></i></span>
-                                @if($event == 'create')
-                                    El email fue creado exitosamente.
-                                @elseif($event == 'update')
-                                    El email fue editado exitosamente.
-                                @elseif($event == 'delete')
-                                    El email fue borrado exitosamente.
+                                @if($event == 'send')
+                                    El newsletter se esta enviando correctamente.
                                 @endif
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
+                        @elseif ($event = app('request')->input('event') && $event == 'error')
+                            <span class="badge badge-pill badge-danger"><i class="fa fa-check"></i></span>
+                                Hubo un error y no se pudo enviar el newsletter.
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         @endif
                     </div>
 
@@ -83,7 +85,7 @@
                                             <td>
                                                 <ul class="acciones-tabla" style="list-style: none">
                                                     <li>
-                                                        <form action="adm/newsletter" method="POST">
+                                                        <form action="/adm/newsletter/mail/send/project/{{ $project->id }}" method="POST">
                                                             {{ csrf_field() }}
                                                             <input type="hidden" name="type" value="project">
                                                             <input type="hidden" name="id" value="{{ $project->id }}">
@@ -122,7 +124,7 @@
                                             <td>
                                                 <ul class="acciones-tabla" style="list-style: none">
                                                     <li>
-                                                        <form action="/adm/newsletter" method="POST">
+                                                        <form action="/adm/newsletter/mail/send/blog/{{ $blog->id }}" method="POST">
                                                             {{ csrf_field() }}
                                                             <input type="hidden" name="type" value="blog">
                                                             <input type="hidden" name="id" value="{{ $blog->id }}">
@@ -161,7 +163,7 @@
                                             <td>
                                                 <ul class="acciones-tabla" style="list-style: none">
                                                     <li>
-                                                        <form action="/adm/newsletter" method="POST">
+                                                        <form action="/adm/newsletter/mail/send/product/{{ $product->id }}" method="POST">
                                                             {{ csrf_field() }}
                                                             <input type="hidden" name="type" value="product">
                                                             <input type="hidden" name="id" value="{{ $product->id }}">

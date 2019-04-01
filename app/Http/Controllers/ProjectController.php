@@ -2,18 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Picture;
 use App\Product;
-use App\Category;
-use App\Brand;
 use App\Project;
-use App\Subcategory;
 use Illuminate\Http\Request;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Redirect;
-use Intervention\Image\ImageManagerStatic as Image;
-
 
 class ProjectController extends Controller
 {

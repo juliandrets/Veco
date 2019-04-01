@@ -7,7 +7,6 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Support\Facades\Redirect;
 use Intervention\Image\Facades\Image;
 
 class Controller extends BaseController
@@ -24,8 +23,8 @@ class Controller extends BaseController
             $count = 0;
             foreach ($pictures as $image) {
                 $count++;
-                $name = time() . $count . '.' . $image->getClientOriginalExtension();
-                $destinationPath = public_path('/uploads/'.$folder.'/');
+                $name = time() . $count . md5(rand(0,999)) . '.' . $image->getClientOriginalExtension();
+                $destinationPath = 'uploads/'.$folder.'/';
 
                 try {
                     list($width, $height) = getimagesize($image);
@@ -37,7 +36,7 @@ class Controller extends BaseController
                 $tumbImage->resize($width / 2, $height / 2);
 
                 $image->move($destinationPath, $name);
-                $tumbImage->save(public_path('/uploads/'.$folder.'/tumb/' . $name));
+                $tumbImage->save('uploads/'.$folder.'/tumb/' . $name);
 
                 $projectPicture = new Picture([
                     'picture' => $name,
@@ -56,8 +55,8 @@ class Controller extends BaseController
     {
         if ($pictures = $request->file('pictures')) {
             foreach ((array)$pictures as $image) {
-                $name = time() . '.' . $image->getClientOriginalExtension();
-                $destinationPath = public_path('/uploads/'.$folder.'/');
+                $name = time() . md5(rand(0,999)) . '.' . $image->getClientOriginalExtension();
+                $destinationPath = 'uploads/'.$folder.'/';
 
                 try {
                     list($width, $height) = getimagesize($image);
@@ -69,7 +68,7 @@ class Controller extends BaseController
                 $tumbImage->resize($width / 2, $height / 2);
 
                 $image->move($destinationPath, $name);
-                $tumbImage->save(public_path('/uploads/'.$folder.'/tumb/' . $name));
+                $tumbImage->save('uploads/'.$folder.'/tumb/' . $name);
 
                 $projectPicture = new Picture([
                     'picture' => $name,
@@ -88,8 +87,8 @@ class Controller extends BaseController
     {
         if ($pictures = $request->file('pictures')) {
             foreach ((array)$pictures as $image) {
-                $name = time() . '.' . $image->getClientOriginalExtension();
-                $destinationPath = public_path('/uploads/' . $folder . '/');
+                $name = time() . md5(rand(0,999)) . '.' . $image->getClientOriginalExtension();
+                $destinationPath = '/uploads/' . $folder . '/';
 
                 try {
                     list($width, $height) = getimagesize($image);
@@ -101,7 +100,7 @@ class Controller extends BaseController
                 $tumbImage->resize($width / 2, $height / 2);
 
                 $image->move($destinationPath, $name);
-                $tumbImage->save(public_path('/uploads/' . $folder . '/tumb/' . $name));
+                $tumbImage->save('uploads/' . $folder . '/tumb/' . $name);
 
                 $picture = Picture::find($picture);
 

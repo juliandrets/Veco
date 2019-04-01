@@ -79,8 +79,8 @@
                                         <tr>
                                             <th scope="row">
                                                 <figure style="overflow: hidden; height: 40px; width: 40px;">
-                                                    @if($product->picture)
-                                                        <img src="/uploads/products/tumb/{{ $product->picture->picture }}" alt="">
+                                                    @if($product->preview2)
+                                                        <img src="/uploads/products/preview/{{ $product->preview2}}" alt="">
                                                     @endif
                                                 </figure>
                                             </th>

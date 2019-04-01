@@ -34,9 +34,19 @@ class HomeController extends Controller
         return view('nosotros');
     }
 
+    public function queHacemos()
+    {
+        return view('que-hacemos');
+    }
+
     public function services()
     {
         return view('servicios');
+    }
+
+    public function fabrica()
+    {
+        return view('fabrica');
     }
 
     public function newsletter()

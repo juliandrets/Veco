@@ -23,6 +23,12 @@ class ProductController extends Controller
         return view('admin-panel-products', ['products' => $products]);
     }
 
+    public function show($id)
+    {
+        $product = Product::find($id);
+        return view('producto-item', ['product' => $product]);
+    }
+
     public function create()
     {
         $this->middleware('role:admin');
@@ -37,11 +43,25 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         // Create model
-        $model = new Product([
-            'name' => $request->input('name'),
-            'category_id' => $request->input('category_id'),
-            'description' => $request->input('description')
-        ]);
+        if ($file = $request->file('file')) {
+            $name = time() . md5(rand(0,999)) . '.' . $file->getClientOriginalExtension();
+            $destinationPath = 'uploads/products/files/';
+            $file->move($destinationPath, $name);
+
+            $model = new Product([
+                'name' => $request->input('name'),
+                'category_id' => $request->input('category_id'),
+                'description' => $request->input('description'),
+                'file' => $name
+            ]);
+        } else {
+            $model = new Product([
+                'name' => $request->input('name'),
+                'category_id' => $request->input('category_id'),
+                'description' => $request->input('description')
+            ]);
+        }
+
         $model->save();
 
         // Get model
@@ -61,21 +81,69 @@ class ProductController extends Controller
     {
         // Get model & picture
         $model = $this->model::find($id);
-        $picture = $model->picture->id;
+
+        // Save preview 1
+        if ($image = $request->file('preview')) {
+            $preview = time() . md5(rand(0,9999)) . '.' . $image->getClientOriginalExtension();
+            $destinationPath = 'uploads/products/preview/';
+
+            try {
+                list($width, $height) = getimagesize($image);
+            } catch (\Exception $ex) {
+                return false;
+            }
+
+            $image->move($destinationPath, $preview);
+        } else {
+            $preview = Product::find($id)->preview;
+        }
+
+        // Save preview 2
+        if ($image = $request->file('preview2')) {
+            $preview2 = time() . md5(rand(2,9999)) . '.' . $image->getClientOriginalExtension();
+            $destinationPath = 'uploads/products/preview/';
+
+            try {
+                list($width, $height) = getimagesize($image);
+            } catch (\Exception $ex) {
+                return false;
+            }
+
+            $image->move($destinationPath, $preview2);
+        } else {
+            $preview2 = Product::find($id)->preview2;
+        }
 
         // Save pictures
-        if (!$this->updatePicture($request, $id, 'product_id', 'products', $picture) && !$model->picture) {
+        if(!$this->updatePictures($request, $id, 'product_id', 'products') && count($model->pictures) == 0) {
             return redirect()->back()->withErrors(['msg', 'La imagen principal es obligatoria']);
         }
 
-        // Update model
-        $model->update([
-            'name' => $request->input('name'),
-            'category_id' => $request->input('category_id'),
-            'description' => $request->input('description')
-        ]);
-        
-        return redirect($this->route.'?event=update');
+        // Save file
+        if ($file = $request->file('file')) {
+            $name = time() . md5(rand(0,999)) . '.' . $file->getClientOriginalExtension();
+            $destinationPath = 'uploads/products/files/';
+            $file->move($destinationPath, $name);
+
+            $model->update([
+                'name' => $request->input('name'),
+                'category_id' => $request->input('category_id'),
+                'description' => $request->input('description'),
+                'file' => $name,
+                'preview' => $preview,
+                'preview2' => $preview2,
+            ]);
+        } else {
+            $model->update([
+                'name' => $request->input('name'),
+                'category_id' => $request->input('category_id'),
+                'description' => $request->input('description'),
+                'preview' => $preview,
+                'preview2' => $preview2,
+            ]);
+        }
+
+        return redirect('adm/products?event=update');
     }
 
     public function edit(Product $product)

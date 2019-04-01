@@ -10,7 +10,14 @@
         <section id="cabecera">
             <h2 class="title">__ Proyectos</h2>
             <p>
-                La auténtica revolución de Tecno radica en ser una «Fábrica de proyectos» líder que realiza obras únicas desde el punto de vista estético y de características técnicas. Arquitectos y contratistas internacionales de obras grandes y medianas eligen su experiencia desde más de sesenta años. Entre los proyectos especiales realizados por la empresa destacan el Parlamento Europeo de Bruselas, el aeropuerto Schiphol de Ámsterdam, el Museo Británico de Londres, el Ministerio de Justicia de París y oficinas como las sedes de Bulgari, Moleskine y el National Bank de Kuwait.
+                VECO, diseña, desarrolla e implementa soluciones para espacios de trabajo y ocio.  
+                Propuestas innovadoras con alto contenido estético y funcional, hacen al desarrollo de
+                productos y suministros especiales.
+                Nuestra fábrica, constituye un lugar de diseño y producción donde los procesos
+                tecnológicos convergen con la artesanía y la capacidad de adaptarse a las necesidades
+                del cliente.
+                La especialización en grandes proyectos y una estrecha relación de colaboración con el
+                diseñador siempre han caracterizado la actividad de la empresa.
             </p>
         </section>
 

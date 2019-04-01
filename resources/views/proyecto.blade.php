@@ -13,7 +13,7 @@
         <ul class="ban">
             @foreach($project->pictures as $picture)
             <li>
-                <div><a class="gallery" href="/uploads/projects/{{ $picture->picture }}"><i class="fa fa-plus" aria-hidden="true"></i></a></div>
+                <div><a class="example-image-link" href="/uploads/projects/{{ $picture->picture }}" data-lightbox="example-set"><i class="fa fa-plus" aria-hidden="true"></i></a></div>
                 <img src="/uploads/projects/{{ $picture->picture }}" alt="">
             </li>
             @endforeach
@@ -92,19 +92,13 @@
             variableWidth: true
         });
         $('.l').click(function(){
-            console.log("asd")
-            $(".ban").slick('slickNext');
+            $(".ban").slick('slickPrev');
         });
         $('.r').click(function(){
             $(".ban").slick('slickNext');
         });
     </script>
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-    <script type="text/javascript" src="{{ asset('plugins/fancybox/jquery.fancybox-1.3.4.pack.js') }}"></script>
 
-    <script>
-        $(".gallery").fancybox();
-    </script>
 
 @endsection

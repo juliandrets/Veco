@@ -18,7 +18,7 @@
 
         <link rel="stylesheet" type="text/css" href="{{ asset('plugins/slick/slick.css') }}"/>
         <link rel="stylesheet" type="text/css" href="{{ asset('plugins/slick/slick-theme.css') }}"/>
-        <link rel="stylesheet" type="text/css" href="{{ asset('plugins/fancybox/fancy.css') }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ asset('plugins/lightbox/css/lightbox.min.css') }}"/>
     </head>
     <body>
         @yield('content')

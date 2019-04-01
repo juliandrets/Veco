@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Picture;
+use App\Product;
 use App\ProductCategory;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManagerStatic as Image;
@@ -90,6 +91,12 @@ class ProductCategoryController extends Controller
     public function destroy($id)
     {
         $model = $this->model::find($id);
+        $products = Product::where('category_id', $model->id);
+
+        foreach($products as $product) {
+            $product->delete();
+        }
+
         $model->delete();
         return redirect($this->route.'?event=delete');
     }

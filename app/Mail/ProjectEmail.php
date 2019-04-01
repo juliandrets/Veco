@@ -17,15 +17,19 @@ class ProjectEmail extends Mailable
      * @var Demo
      */
     public $demo;
+    public $subtitulo;
+    public $picture;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($demo)
+    public function __construct($demo, $subtitulo, $picture)
     {
         $this->demo = $demo;
+        $this->subtitulo = $subtitulo;
+        $this->picture = $picture;
     }
 
     /**

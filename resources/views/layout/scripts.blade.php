@@ -1,6 +1,7 @@
-
-
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+	<!-- Lightbox -->
+	<script type="text/javascript" src="/plugins/lightbox/js/lightbox-plus-jquery.min.js"></script>
 
 	<!-- Loading -->
 	<script type='text/javascript'>
@@ -32,6 +33,22 @@
 			$("#menu").fadeOut("slow", function() {
 
 			});
+		});
+		$("#products-button").click(function () {
+			if ($("#products-menu").css('display') === 'none') {
+                $("#veco-menu").css('display' ,'none');
+                $("#products-menu").fadeIn("slow", function() {});
+			} else {
+                $("#products-menu").fadeOut("slow", function() {});
+			}
+		});
+		$("#veco-button").click(function () {
+			if ($("#veco-menu").css('display') === 'none') {
+                $("#products-menu").css('display' ,'none');
+                $("#veco-menu").fadeIn("slow", function() {});
+			} else {
+                $("#veco-menu").fadeOut("slow", function() {});
+			}
 		});
 	</script>
 

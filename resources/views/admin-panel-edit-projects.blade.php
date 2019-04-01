@@ -68,7 +68,7 @@
                                         <label class=" form-control-label">Imagenes</label>
 
                                         @if (count($project->pictures))
-                                            <ul class="p">
+                                            <ul class="img-producto-form">
                                                 @foreach ($project->pictures as $picture)
                                                     <li>
                                                         <img src="/uploads/projects/tumb/{{ $picture->picture }}" alt="">

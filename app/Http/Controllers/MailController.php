@@ -5,31 +5,42 @@ use App\Blog;
 use App\Mail\ProjectEmail;
 use App\Product;
 use App\Project;
+use Exception;
 use Illuminate\Support\Facades\Mail;
 
 class MailController extends Controller
 {
-    protected $type = 'project';
-    protected $idObj = 12;
+    protected $route = '/adm/newsletter/create';
 
-    public function send()
+    public function send($class, $id)
     {
         $objDemo = new \stdClass();
 
-        if ($this->type == 'project') {
-            $objDemo->obj = $this->getProject($this->idObj);
-        } else if ($this->type == 'blog') {
-            $objDemo->obj = $this->getBlog($this->idObj);
-        } else if ($this->type == 'product') {
-            $objDemo->obj = $this->getProduct($this->idObj);
+        $type = $class;
+        $idObj = $id;
+
+        if ($type == 'project') {
+            $subtitulo = 'NUEVO PROYECTO';
+            $objDemo->obj = $this->getProject($idObj);
+        } else if ($type == 'blog') {
+            $objDemo->obj = $this->getBlog($idObj);
+            $subtitulo = 'NUEVA NOTICIA';
+        } else if ($type == 'product') {
+            $objDemo->obj = $this->getProduct($idObj);
+            $subtitulo = 'NUEVO PRODUCTO';
         }
+
+        $picture = $objDemo->obj->firstPicture->first()->picture;
+
+        //return view('mails.demo');
 
         try {
-            Mail::to("juliandrets@gmail.com")->send(new ProjectEmail($objDemo));
+            Mail::to("juliandrets@gmail.com")->send(new ProjectEmail($objDemo, $subtitulo, $picture));
         } catch (\Exception $ex) {
-            throw new \Exception($ex->getMessage());
+            return redirect($this->route.'?event=error');
         }
 
+        return redirect($this->route.'?event=send');
     }
 
     protected function getProject($id)

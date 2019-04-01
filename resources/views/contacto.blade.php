@@ -17,7 +17,9 @@
         <section class="content">
 
             <section id="datos-contacto">
-                <h2>VECO</h2>
+
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.814977114614!2d-58.90578398502831!3d-34.60883988045824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bc91cc8145a8df%3A0xa236c074e449aef9!2sCaminito%2C+General+Rodriguez%2C+Buenos+Aires!5e0!3m2!1ses!2sar!4v1552679097485" height="350" style="width: 100%; padding-bottom: 30px" frameborder="0" style="border:0" allowfullscreen></iframe>
+
                 <ul>
                     <li><i class="fa fa-map-marker" aria-hidden="true"></i> Caminito 950 | Gral. Rodríguez </li>
                     <li><i class="fa fa-phone-square" aria-hidden="true"></i> 115218-2716 </li>

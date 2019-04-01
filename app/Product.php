@@ -14,6 +14,11 @@ class Product extends Model
         return $this->hasOne(Picture::class, 'product_id', 'id');
     }
 
+    public function pictures()
+    {
+        return $this->hasMany(Picture::class, 'product_id', 'id')->oldest();
+    }
+
     public function category()
     {
         return $this->hasOne(ProductCategory::class, 'id', 'category_id');

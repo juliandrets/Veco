@@ -24,9 +24,10 @@
             <ul class="products">
                 @foreach ($products as $product)
                 <li>
-                    <a href="#">
+                    <a href="/producto/{{ $product->id }}">
                         <figure>
-                            <img src="/uploads/products/{{ $product->picture->picture }}">
+                            <img class="preview" src="/uploads/products/preview/{{ $product->preview }}">
+                            <img class="preview2" src="/uploads/products/preview/{{ $product->preview2 }}">
                         </figure>
                         <section>
                             <h2>{{ $product->name }}</h2>
@@ -34,9 +35,9 @@
                     </a>
                 </li>
                 @endforeach
-                {{ $products->links() }}
             </ul>
         </section>
+        {{ $products->links() }}
     </section>
 
     <!-- Incluyo el footer y los script -->

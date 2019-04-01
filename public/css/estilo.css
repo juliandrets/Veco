@@ -17,6 +17,23 @@ body {
 @media (max-width: 380px) {
   .title {
     font-size: 10vw; } }
+.pagination {
+  text-align: center;
+  margin-top: 20px;
+  padding-bottom: 50px; }
+  .pagination li {
+    display: inline-block;
+    padding: 10px 12px 10px 12px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 3px; }
+  .pagination li:hover {
+    background-color: #e3a129;
+    color: white !important;
+    border-color: #e3a129; }
+  .pagination li:hover a {
+    color: white; }
+
 .breadcrumbs {
   margin-bottom: 30px; }
   .breadcrumbs li {
@@ -85,10 +102,10 @@ h2 {
     line-height: 40px;
     padding-bottom: auto; }
   .pagination li:hover {
-    border-color: #2c97df; }
+    border-color: #e3a129; }
   .pagination .active {
-    color: #2c97df;
-    border-color: #2c97df; }
+    color: #e3a129;
+    border-color: #e3a129; }
 
 header nav {
   max-width: 1100px;
@@ -112,7 +129,7 @@ header nav {
       line-height: 62px;
       font-size: 30px; }
   header nav .b-menu:hover {
-    background-color: #2c97df;
+    background-color: #e3a129;
     transition: .5s; }
   @media (max-width: 1200px) {
     header nav {
@@ -134,38 +151,69 @@ header #menu {
   right: 0px;
   top: 0px;
   background-color: white; }
-  header #menu section {
-    width: 50vw;
-    height: 100vh;
+  header #menu article {
     display: flex;
     align-items: center;
-    justify-content: center; }
-    header #menu section ul {
-      text-align: right; }
-      header #menu section ul li {
-        color: #333;
-        font-size: 22px;
-        font-weight: 300;
-        padding: 5px 0px 5px 0px; }
-      header #menu section ul a:hover {
-        color: #2c97df; }
-    header #menu section .b-menu-a {
-      position: absolute;
-      right: 23.7%;
-      top: calc((155px / 2) - 30px);
-      background-color: #2c97df;
-      width: 60px;
-      height: 60px;
-      border-radius: 200px;
-      text-align: center;
-      transition: .5s; }
-      header #menu section .b-menu-a i {
-        color: white;
-        line-height: 62px;
-        font-size: 30px; }
-    @media (max-width: 480px) {
-      header #menu section {
-        width: 100vw; } }
+    justify-content: center;
+    width: 50vw;
+    height: 100vh; }
+    header #menu article section {
+      display: flex;
+      align-items: center;
+      width: 60%;
+      overflow: hidden;
+      align-items: center; }
+      header #menu article section .main-menu {
+        float: right;
+        width: 50%;
+        text-align: right; }
+        header #menu article section .main-menu li {
+          color: #333;
+          font-size: 17px;
+          font-weight: 300;
+          padding: 5px 0px 5px 0px; }
+        header #menu article section .main-menu li:nth-child(1), header #menu article section .main-menu li:nth-child(2), header #menu article section .main-menu li:nth-child(3), header #menu article section .main-menu li:nth-child(4) {
+          font-size: 22px; }
+        header #menu article section .main-menu a:hover {
+          color: #e3a129; }
+      header #menu article section .second-menu {
+        float: left;
+        width: 50%; }
+        header #menu article section .second-menu ul {
+          width: 100%;
+          display: none;
+          text-align: left;
+          padding-right: 30px;
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box; }
+          header #menu article section .second-menu ul li {
+            color: #333;
+            font-size: 16px;
+            font-weight: 300;
+            padding: 5px 0px 5px 0px;
+            border-bottom: 2px dotted;
+            border-color: rgba(0, 0, 0, 0.1);
+            text-align: left; }
+          header #menu article section .second-menu ul a:hover {
+            color: #e3a129; }
+      header #menu article section .b-menu-a {
+        position: absolute;
+        right: 20%;
+        top: calc((155px / 2) - 30px);
+        background-color: #e3a129;
+        width: 60px;
+        height: 60px;
+        border-radius: 200px;
+        text-align: center;
+        transition: .5s; }
+        header #menu article section .b-menu-a i {
+          color: white;
+          line-height: 62px;
+          font-size: 30px; }
+      @media (max-width: 480px) {
+        header #menu article section {
+          width: 100vw; } }
 
 footer {
   max-width: 95%;
@@ -177,7 +225,7 @@ footer {
     background-position: top;
     position: relative; }
     footer .bg #newsletter {
-      background-color: #333;
+      background-color: #e3a129;
       color: white;
       position: absolute;
       top: 0px;
@@ -195,10 +243,10 @@ footer {
           margin-left: 20px;
           transition: .3s; }
     footer .bg #newsletter:hover > h3 i {
-      color: #2c97df;
+      color: #e3a129;
       transition: .3s; }
   footer .footbar {
-    background-color: #2c97df;
+    background-color: #e3a129;
     color: white;
     display: flex;
     justify-content: space-between;
@@ -275,7 +323,7 @@ footer {
         #login .content .form form label button {
           border: none;
           width: 100%;
-          background-color: #2c97df;
+          background-color: #e3a129;
           padding: 12px 0px 12px 0px;
           color: white;
           font-size: 16px;
@@ -390,7 +438,7 @@ footer {
         font-size: 16px;
         font-weight: 300;
         text-transform: uppercase;
-        border-bottom: 2px solid #2c97df;
+        border-bottom: 2px solid #e3a129;
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box; }
@@ -399,7 +447,7 @@ footer {
       #banner li .content section .link:hover {
         padding-right: 20px; }
       #banner li .content section .link:hover > i {
-        color: #2c97df;
+        color: #e3a129;
         transition: .3s; }
       @media (max-width: 1000px) {
         #banner li .content section {
@@ -607,7 +655,7 @@ footer {
         position: relative; }
         #blog-index ul li figure .hover {
           opacity: 0;
-          background-color: rgba(233, 48, 43, 0.9);
+          background-color: rgba(227, 161, 41, 0.9);
           position: absolute;
           top: 0px;
           left: 0px;
@@ -758,38 +806,42 @@ footer {
   #about .items {
     padding: 50px 0px 50px 0px; }
     #about .items li {
-      display: flex;
-      justify-content: space-between; }
-      #about .items li figure {
-        height: 550px;
-        width: 550px; }
-        #about .items li figure img {
-          height: 100%; }
-        @media (max-width: 1000px) {
-          #about .items li figure {
-            padding: 10px;
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
-            height: 300px; } }
-        @media (max-width: 700px) {
-          #about .items li figure {
-            padding: 0px;
-            margin: 0 auto;
-            padding: 10px 0px 10px 0px;
-            height: 300px;
-            display: none; } }
+      padding: 20px 0px; }
       #about .items li article {
         display: flex;
         align-items: center; }
         #about .items li article h2 {
-          padding-top: 20px; }
+          padding-top: 20px;
+          margin-bottom: 20px; }
         #about .items li article p {
           padding-top: 30px;
           font-size: 15px;
           font-weight: 300;
           line-height: 22px;
-          max-width: 600px; }
+          max-width: 100%; }
+        #about .items li article figure {
+          width: 100%;
+          height: 350px;
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          justify-content: center; }
+          #about .items li article figure img {
+            width: 100%; }
+          @media (max-width: 1000px) {
+            #about .items li article figure {
+              padding: 10px;
+              -webkit-box-sizing: border-box;
+              -moz-box-sizing: border-box;
+              box-sizing: border-box;
+              height: 300px; } }
+          @media (max-width: 700px) {
+            #about .items li article figure {
+              padding: 0px;
+              margin: 0 auto;
+              padding: 10px 0px 10px 0px;
+              height: 300px;
+              display: none; } }
       @media (max-width: 780px) {
         #about .items li {
           display: block; } }
@@ -827,7 +879,7 @@ footer {
       transition: .3s;
       font-weight: 600; }
     #servicios .buttons li:hover {
-      background-color: #2c97df;
+      background-color: #e3a129;
       color: white;
       transition: .3s; }
   #servicios .content {
@@ -859,7 +911,7 @@ footer {
           font-size: 14px;
           line-height: 22px; }
           #servicios .content li article p b {
-            color: #2c97df;
+            color: #e3a129;
             font-weight: 600; }
     #servicios .content #c1 {
       display: block; }
@@ -979,25 +1031,26 @@ footer {
             position: relative;
             height: 330px;
             transition: .3s; }
+          #productos .content .products li figure .preview {
+            position: absolute;
+            z-index: 4; }
+          #productos .content .products li figure .preview2 {
+            position: absolute;
+            z-index: 3; }
         #productos .content .products li section {
           position: absolute;
-          bottom: 20px;
+          bottom: 50px;
           left: 0px;
-          background-color: white;
-          padding: 10px 30px 10px 10px;
-          -webkit-box-sizing: border-box;
-          -moz-box-sizing: border-box;
-          box-sizing: border-box;
-          transition: .3s; }
+          transition: .3s;
+          z-index: 10;
+          width: 100%;
+          text-align: center; }
           #productos .content .products li section h2 {
-            font-weight: 100;
+            font-weight: 600;
             font-size: 18px; }
-      #productos .content .products li:hover > a figure img {
-        opacity: .2;
+      #productos .content .products li:hover > a figure .preview {
+        opacity: 0;
         transition: .4s; }
-      #productos .content .products li:hover > a section {
-        padding-right: 60px;
-        transition: .7s; }
   #productos #products {
     padding: 20px 0px 50px 0px !important;
     background-color: #F3F3F3 !important; }
@@ -1058,7 +1111,7 @@ footer {
             resize: none; }
       #contacto .content form button {
         border: none;
-        background-color: #2c97df;
+        background-color: #e3a129;
         padding: 10px 20px 10px 20px;
         color: white;
         border-radius: 4px;
@@ -1120,7 +1173,7 @@ footer {
       border: none;
       text-transform: uppercase; }
     #newsletter-section #suscripcion form button:hover {
-      background-color: #2c97df; }
+      background-color: #e3a129; }
     #newsletter-section #suscripcion form .disabled {
       opacity: .5; }
     #newsletter-section #suscripcion form .disabled:hover {
@@ -1178,35 +1231,35 @@ footer {
     #proyectos ul li section {
       position: absolute;
       opacity: 0;
-      background-color: rgba(233, 48, 43, 0.9);
-      width: 70%;
-      height: 70%;
+      background-color: rgba(227, 161, 41, 0.9);
+      padding: 50px 50px 50px 50px;
       box-sizing: border-box;
       color: white;
-      text-align: center;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: .6s; }
+      right: 0px;
+      align-items: left;
+      transition: .6s;
+      border-bottom-left-radius: 40px;
+      border-top-left-radius: 40px; }
       #proyectos ul li section h3 {
-        font-size: 50px;
+        font-size: 30px;
         font-weight: 700; }
       #proyectos ul li section h4 {
         font-weight: 300;
-        font-size: 23px;
+        font-size: 18px;
         margin-top: 10px; }
       @media (max-width: 780px) {
         #proyectos ul li section h3 {
-          font-size: 30px; } }
+          font-size: 20px; } }
       @media (max-width: 480px) {
         #proyectos ul li section {
           width: 90%;
-          padding: 0px 10px 0px 10px;
+          padding: 21px 10px 10px 10px;
           -webkit-box-sizing: border-box;
           -moz-box-sizing: border-box;
           box-sizing: border-box; }
           #proyectos ul li section h3 {
-            font-size: 20px; }
+            font-size: 18px; }
           #proyectos ul li section h4 {
             font-size: 16px; } }
   #proyectos ul li:hover > section {
@@ -1256,7 +1309,7 @@ footer {
         top: calc(50% - 30px);
         left: calc(50% - 30px); }
         #banner-proyecto ul li div i {
-          background-color: #2c97df;
+          background-color: #e3a129;
           color: white;
           height: 60px;
           width: 60px;
@@ -1289,6 +1342,20 @@ footer {
     @media (max-width: 780px) {
       #proyecto .content {
         width: 100%; } }
+    #proyecto .content .file {
+      padding: 20px 0px; }
+      #proyecto .content .file h2 {
+        font-size: 16px;
+        border: 2px solid #e3a129;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 10px 20px;
+        display: inline-block;
+        color: #e3a129; }
+      #proyecto .content .file h2:hover {
+        color: white;
+        background-color: #e3a129; }
   @media (max-width: 1050px) {
     #proyecto {
       max-width: 90%; } }
@@ -1360,7 +1427,7 @@ footer {
   margin: 0 auto;
   width: 15%;
   height: 15%;
-  background-color: #0080c8;
+  background-color: #e3a129;
   border-radius: 100%;
   -webkit-animation: sk-circleBounceDelay 1.2s infinite ease-in-out both;
   animation: sk-circleBounceDelay 1.2s infinite ease-in-out both; }

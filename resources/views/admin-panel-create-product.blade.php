@@ -67,7 +67,7 @@
                                     <div class="form-group">
                                         <label class=" form-control-label">Imagenes</label>
                                         <div class="input-group">
-                                            <input id="input-b1" type="file" class="file" name="pictures[]" data-theme="fas" required>
+                                            <input id="input-b1" type="file" class="file" name="pictures[]" multiple data-theme="fas" required>
                                         </div>
                                         <small class="form-text text-muted">Preferentemente formato JPG. (se muestra en la pagina principal)</small>
                                     </div>
@@ -92,10 +92,17 @@
                                         <small class="form-text text-muted">Nombre de la categoria</small>
                                     </div>
                                     <div class="form-group">
+                                        <label class=" form-control-label">Ficha técnica</label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-file"></i></div>
+                                            <input type="file" name="file" accept="application/pdf">
+                                        </div>
+                                        <small class="form-text text-muted">Nombre de la categoria</small>
+                                    </div>
+                                    <div class="form-group">
                                         <label class=" form-control-label">Descripcion</label>
                                         <div class="input-group">
-                                            <div class="input-group-addon"><i class="fa fa-pencil"></i></div>
-                                            <textarea class="form-control" name="description"></textarea>
+                                            <textarea class="form-control" id="description" name="description"></textarea>
                                         </div>
                                         <small class="form-text text-muted">Texto detallado de la categoria (se muestra en la pagina principal)</small>
                                     </div>
@@ -129,7 +136,12 @@
     <script src="{{ asset('admin/js/upload/js/locales/es.js') }}" type="text/javascript"></script>
     <script src="{{ asset('admin/js/upload/themes/fas/theme.js') }}" type="text/javascript"></script>
     <script src="{{ asset('admin/js/upload/themes/explorer-fas/theme.js') }}" type="text/javascript"></script>
-    </head>
+
+    <script src="{{ asset('plugins/ckeditor/ckeditor.js') }}"></script>
+    <script>
+        CKEDITOR.replace('description');
+        CKEDITOR.config.width = '100%';
+    </script>
 
     <script>
         // with plugin options
@@ -137,7 +149,7 @@
             theme: 'fas',
             showUpload: false,
             language: 'es',
-            maxFileCount: 1,
+            maxFileCount: 6,
             allowedFileExtensions: ["jpg", "gif", "png", "txt"],
             maxFilePreviewSize: 10240,
             browseOnZoneClick: true,

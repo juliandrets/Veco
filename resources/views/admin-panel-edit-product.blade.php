@@ -65,18 +65,55 @@
                                 {{ csrf_field() }}
                                 <div class="card-body card-block">
                                     <div class="form-group">
+                                        <label class=" form-control-label">Imagenes Preview</label>
+
+                                        @if (count($product->preview))
+                                            <ul class="img-producto-form">
+                                                @if (count($product->preview))
+                                                    <li>
+                                                        <img src="/uploads/products/preview/{{ $product->preview }}" alt="">
+                                                    </li>
+                                                @endif
+                                                @if (count($product->preview2))
+                                                    <li>
+                                                        <img src="/uploads/products/preview/{{ $product->preview2 }}" alt="">
+                                                    </li>
+                                                @endif
+                                            </ul>
+                                        @endif
+
+                                        <div class="form-group">
+                                            <div class="col-sm-6">
+                                                <div>
+                                                    <input type="file" name="preview" accept="image/png"  @if (!$product->preview) {{ "required" }} @endif>
+                                                </div>
+                                                <small class="form-text text-muted">Imagen preview1</small>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div>
+                                                    <input type="file" name="preview2" accept="image/png"  @if (!$product->preview2) {{ "required" }} @endif>
+                                                </div>
+                                                <small class="form-text text-muted">Imagen preview2</small>
+                                            </div>
+                                        </div>
+                                        <br><br>
+                                    </div>
+                                    <div class="form-group">
                                         <label class=" form-control-label">Imagenes</label>
 
-                                        @if (count($product->picture))
+                                        @if (count($product->pictures))
                                             <ul class="img-producto-form">
-                                                <li>
-                                                    <img src="/uploads/products/tumb/{{ $product->picture->picture }}" alt="">
-                                                </li>
+                                                @foreach ($product->pictures as $picture)
+                                                    <li>
+                                                        <img src="/uploads/products/tumb/{{ $picture->picture }}" alt="">
+                                                        <a href="/adm/pictures/{{ $picture->id }}/delete"><div class="bb"><i class="fa fa-trash"></i></div></a>
+                                                    </li>
+                                                @endforeach
                                             </ul>
                                         @endif
 
                                         <div class="input-group">
-                                            <input id="input-b1" type="file" class="file" name="pictures[]" data-theme="fas" @if (!$product->picture->picture) {{ "required" }} @endif>
+                                            <input id="input-b1" type="file" class="file" name="pictures[]" multiple data-theme="fas" @if (!$product->pictures) {{ "required" }} @endif>
                                         </div>
                                         <small class="form-text text-muted">Preferentemente formato JPG. (se muestra en la pagina principal)</small>
                                     </div>
@@ -101,10 +138,17 @@
                                         <small class="form-text text-muted">Nombre de la categoria</small>
                                     </div>
                                     <div class="form-group">
+                                        <label class=" form-control-label">Ficha técnica <span style="color:red">{{ $product->file ? "(Hay una ficha cargada)" : null }}</span></label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-file"></i></div>
+                                            <input type="file" name="file" accept="application/pdf">
+                                        </div>
+                                        <small class="form-text text-muted">Nombre de la categoria</small>
+                                    </div>
+                                    <div class="form-group">
                                         <label class=" form-control-label">Descripcion</label>
                                         <div class="input-group">
-                                            <div class="input-group-addon"><i class="fa fa-pencil"></i></div>
-                                            <textarea class="form-control" name="description">{{ $product->description }}</textarea>
+                                            <textarea class="form-control" id="description" name="description">{{ $product->description }}</textarea>
                                         </div>
                                         <small class="form-text text-muted">Texto detallado de la categoria (se muestra en la pagina principal)</small>
                                     </div>
@@ -138,7 +182,13 @@
     <script src="{{ asset('admin/js/upload/js/locales/es.js') }}" type="text/javascript"></script>
     <script src="{{ asset('admin/js/upload/themes/fas/theme.js') }}" type="text/javascript"></script>
     <script src="{{ asset('admin/js/upload/themes/explorer-fas/theme.js') }}" type="text/javascript"></script>
-    </head>
+
+    <script src="{{ asset('plugins/ckeditor/ckeditor.js') }}"></script>
+    <script>
+        CKEDITOR.replace('description');
+        CKEDITOR.config.width = '100%';
+    </script>
+
 
     <script>
         // with plugin options
@@ -146,7 +196,7 @@
             theme: 'fas',
             showUpload: false,
             language: 'es',
-            maxFileCount: 1,
+            maxFileCount: 6,
             allowedFileExtensions: ["jpg", "gif", "png", "txt"],
             maxFilePreviewSize: 10240,
             browseOnZoneClick: true,
