@@ -44,5 +44,8 @@
     @include('layout.footer')
     @include('layout.scripts')
 
+    <!-- Slick carrousel -->
+    <script type="text/javascript" src="/plugins/slick/slick.min.js"></script>
+
 
 @endsection

@@ -53,7 +53,7 @@
     <script type="text/javascript">
         $('.ban').slick({
             infinite: true,
-            slidesToShow: 3,
+            slidesToShow: 2,
             slidesToScroll: 1,
             centerMode: true,
             variableWidth: true

@@ -59,13 +59,13 @@ class HomeController extends Controller
         return view('contacto');
     }
 
-    public function products()
+    public function clientes()
     {
-        $categories = ProductCategory::orderBy('id', 'desc')->get();
-
-        return view('productos', [
-            'categories' => $categories
-        ]);
+        return view('clientes');
+    }
+    public function showroom()
+    {
+        return view('showroom');
     }
 
     public function showProducts($name)

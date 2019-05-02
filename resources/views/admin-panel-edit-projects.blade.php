@@ -71,8 +71,10 @@
                                             <ul class="img-producto-form">
                                                 @foreach ($project->pictures as $picture)
                                                     <li>
-                                                        <img src="/uploads/projects/tumb/{{ $picture->picture }}" alt="">
-                                                        <a href="/adm/pictures/{{ $picture->id }}/delete"><div class="bb"><i class="fa fa-trash"></i></div></a>
+                                                        <figure>
+                                                            <img src="/uploads/projects/tumb/{{ $picture->picture }}" alt="">
+                                                            <a href="/adm/pictures/{{ $picture->id }}/delete"><div class="bb"><i class="fa fa-trash"></i></div></a>
+                                                        </figure>
                                                     </li>
                                                 @endforeach
                                             </ul>
@@ -210,7 +212,6 @@
             theme: 'fas',
             showUpload: false,
             language: 'es',
-            maxFileCount: 10,
             allowedFileExtensions: ["jpg", "gif", "png", "txt"],
             maxFilePreviewSize: 22500,
             browseOnZoneClick: true,

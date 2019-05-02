@@ -40,6 +40,7 @@
                         <li><a href="/nosotros">Quienes somos</a></li>
                         <li><a href="/clientes">Nuestros Clientes</a></li>
                         <li><a href="/fabrica">Fábrica</a></li>
+                        <li><a href="/showroom">Showroom</a></li>
                     </ul>
                 </section>
                 <ul class="main-menu">

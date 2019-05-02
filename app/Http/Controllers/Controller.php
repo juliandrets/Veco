@@ -88,7 +88,7 @@ class Controller extends BaseController
         if ($pictures = $request->file('pictures')) {
             foreach ((array)$pictures as $image) {
                 $name = time() . md5(rand(0,999)) . '.' . $image->getClientOriginalExtension();
-                $destinationPath = '/uploads/' . $folder . '/';
+                $destinationPath = 'uploads/' . $folder . '/';
 
                 try {
                     list($width, $height) = getimagesize($image);

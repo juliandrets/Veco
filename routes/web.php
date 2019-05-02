@@ -9,6 +9,8 @@ Route::get('que-hacemos', 'HomeController@queHacemos');
 //Route::get('servicios', 'HomeController@services');
 Route::get('fabrica', 'HomeController@fabrica');
 Route::get('contacto', 'HomeController@contacto');
+Route::get('clientes', 'HomeController@clientes');
+Route::get('showroom', 'HomeController@showroom');
 
 // Admin Panel ------------------------------------------------------------
 Route::get('adm', 'AdminPanelController@index')->middleware('auth', 'role:admin');

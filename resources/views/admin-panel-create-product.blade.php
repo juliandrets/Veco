@@ -149,7 +149,6 @@
             theme: 'fas',
             showUpload: false,
             language: 'es',
-            maxFileCount: 6,
             allowedFileExtensions: ["jpg", "gif", "png", "txt"],
             maxFilePreviewSize: 10240,
             browseOnZoneClick: true,
