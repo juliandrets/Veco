@@ -6,14 +6,19 @@
 
     @include('layout.header-default')
 
-    <ul id="banner-proyecto">
-        @foreach($blog->pictures as $picture)
-            <li>
-                <div><a href="#"><i class="fa fa-plus" aria-hidden="true"></i></a></div>
-                <img src="/uploads/blog/{{ $picture->picture }}" alt="">
-            </li>
-        @endforeach
-    </ul>
+    <section id="banner-proyecto">
+        <section class="arrow l"><i class="fa fa-angle-left" aria-hidden="true"></i></section>
+        <section class="arrow r"><i class="fa fa-angle-right" aria-hidden="true"></i></section>
+
+        <ul class="ban">
+            @foreach($blog->pictures as $picture)
+                <li>
+                    <div><a class="example-image-link" href="/uploads/blog/{{ $picture->picture }}" data-lightbox="example-set"><i class="fa fa-plus" aria-hidden="true"></i></a></div>
+                    <img src="/uploads/blog/{{ $picture->picture }}" alt="">
+                </li>
+            @endforeach
+        </ul>
+    </section>
 
     <section id="noticia">
 
@@ -31,7 +36,7 @@
                 {{ $blog->description }}
             </strong>
             <br><br>
-            {{ $blog->text }}
+            {!! $blog->text !!}
         </p>
     </section>
 
@@ -41,14 +46,21 @@
 
     <!-- Slick carrousel -->
     <script type="text/javascript" src="/plugins/slick/slick.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 
     <script type="text/javascript">
-        $('#banner-proyecto').slick({
+        $('.ban').slick({
             infinite: true,
-            slidesToShow: 3,
+            slidesToShow: 1,
             slidesToScroll: 1,
             centerMode: true,
             variableWidth: true
+        });
+        $('.l').click(function(){
+            $(".ban").slick('slickPrev');
+        });
+        $('.r').click(function(){
+            $(".ban").slick('slickNext');
         });
     </script>
 

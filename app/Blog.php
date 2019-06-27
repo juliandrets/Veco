@@ -9,9 +9,11 @@ class Blog extends Model
     protected $keyType = 'string';
     protected $guarded = [];
 
+
+
     public function pictures()
     {
-        return $this->hasMany(Picture::class, 'blog_id', "id");
+        return $this->hasMany(Picture::class, 'blog_id', 'id')->oldest();
     }
     public function firstPicture()
     {

@@ -56,7 +56,7 @@
                     </div>
 
                     <div class="col-md-12" style="padding-bottom: 20px">
-                        <a href="/adm/newsletter/create"><button type="button" class="btn btn-primary"><i class="fa fa-plus"></i>&nbsp; Nuevo Newsletter</button></a>
+                        <a href="/adm/emails/export" target="_blank"><button type="button" class="btn btn-primary"><i class="fa fa-plus"></i>&nbsp; Exportar</button></a>
                     </div>
 
                     <div class="col-md-12">
@@ -87,7 +87,6 @@
                                     @endforeach
                                     </tbody>
                                 </table>
-                                {{ $emails->links() }}
                             </div>
                         </div>
                     </div>

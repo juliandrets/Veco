@@ -64,6 +64,34 @@
                             <form action="/adm/products" method="POST" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <div class="card-body card-block">
+
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <input class="form-control-label" type="checkbox" name="fixed" style="width:25px !important;" />
+                                            <label class=" form-control-label">Fijar producto</label>
+                                        </div>
+                                        <small class="form-text text-muted">El producto aparecera primero en la lista de productos. (A medida)</small>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class=" form-control-label">Imagenes Preview</label>
+
+                                        <div class="form-group">
+                                            <div class="col-sm-6">
+                                                <div>
+                                                    <input type="file" name="preview" accept="image/png" required>
+                                                </div>
+                                                <small class="form-text text-muted">Imagen preview1</small>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div>
+                                                    <input type="file" name="preview2" accept="image/png" required>
+                                                </div>
+                                                <small class="form-text text-muted">Imagen preview2</small>
+                                            </div>
+                                        </div>
+                                        <br><br>
+                                    </div>
                                     <div class="form-group">
                                         <label class=" form-control-label">Imagenes</label>
                                         <div class="input-group">

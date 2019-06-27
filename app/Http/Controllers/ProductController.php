@@ -52,13 +52,15 @@ class ProductController extends Controller
                 'name' => $request->input('name'),
                 'category_id' => $request->input('category_id'),
                 'description' => $request->input('description'),
+                'fixed' => $request->input('fixed'),
                 'file' => $name
             ]);
         } else {
             $model = new Product([
                 'name' => $request->input('name'),
                 'category_id' => $request->input('category_id'),
-                'description' => $request->input('description')
+                'description' => $request->input('description'),
+                'fixed' => $request->input('fixed'),
             ]);
         }
 
@@ -73,6 +75,43 @@ class ProductController extends Controller
             $model->delete();
             return redirect()->back()->withErrors(['msg', 'La imagen principal es obligatoria']);
         }
+
+        $preview = '';
+        $preview2 = '';
+
+        // Save preview 1
+        if ($image = $request->file('preview')) {
+            $preview = time() . md5(rand(0,9999)) . '.' . $image->getClientOriginalExtension();
+            $destinationPath = 'uploads/products/preview/';
+
+            try {
+                list($width, $height) = getimagesize($image);
+            } catch (\Exception $ex) {
+                return false;
+            }
+
+            $image->move($destinationPath, $preview);
+        }
+
+        // Save preview 2
+        if ($image = $request->file('preview2')) {
+            $preview2 = time() . md5(rand(2,9999)) . '.' . $image->getClientOriginalExtension();
+            $destinationPath = 'uploads/products/preview/';
+
+            try {
+                list($width, $height) = getimagesize($image);
+            } catch (\Exception $ex) {
+                return false;
+            }
+
+            $image->move($destinationPath, $preview2);
+        }
+
+        $model->update([
+            'preview' => $preview,
+            'preview2' => $preview2,
+        ]);
+
 
         return redirect($this->route.'?event=create');
     }
@@ -129,6 +168,7 @@ class ProductController extends Controller
                 'name' => $request->input('name'),
                 'category_id' => $request->input('category_id'),
                 'description' => $request->input('description'),
+                'fixed' => $request->input('fixed'),
                 'file' => $name,
                 'preview' => $preview,
                 'preview2' => $preview2,
@@ -138,6 +178,7 @@ class ProductController extends Controller
                 'name' => $request->input('name'),
                 'category_id' => $request->input('category_id'),
                 'description' => $request->input('description'),
+                'fixed' => $request->input('fixed'),
                 'preview' => $preview,
                 'preview2' => $preview2,
             ]);

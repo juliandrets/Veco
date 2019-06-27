@@ -27,6 +27,7 @@
                         <label>
                             <p>Name *</p>
                             <input id="name" type="text" name="name" required>
+                            <input type="hidden" name="where" value="newsletter">
                         </label>
                     </div>
                     <div>

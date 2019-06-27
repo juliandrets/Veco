@@ -37,11 +37,36 @@
 
             @if ($product->file)
                 <section class="file">
-                    <a href="/uploads/products/files/{{ $product->file }}" target="_blank"><h2><i class="fa fa-file-archive-o" aria-hidden="true"></i> Descarga la ficha técnica</h2></a>
+                    <a href="#ex1" rel="modal:open"><h2><i class="fa fa-file-archive-o" aria-hidden="true"></i> Descarga la ficha técnica</h2></a>
                 </section>
             @endif
+
         </section>
     </section>
+
+    <div id="ex1" class="modal">
+        <form action="/newsletter/suscripcion" method="POST">
+            {{ csrf_field() }}
+            <section class="inputs">
+                <h2>Para continuar es necesario que nos dejes tu email</h2> <br><br>
+                <div>
+                    <label>
+                        <p>Email *</p>
+                        <input id="name" type="email" name="email" required>
+                        <input type="hidden" name="where" value="product">
+                    </label>
+                </div>
+            </section>
+            <hr>
+
+            <section class="accept">
+                <input type="checkbox" name="accept" id="accept" >
+                <p>Acepto recibir emails con las nuevas noticias de Veco y sus productos.</p>
+            </section>
+            <br>
+            <button id="submit" class="disabled" disabled>Enviar suscripcion</button>
+        </form>
+    </div>
 
     <!-- Incluyo el footer y los script -->
     @include('layout.footer')
@@ -49,6 +74,7 @@
 
     <!-- Slick carrousel -->
     <script type="text/javascript" src="/plugins/slick/slick.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 
     <script type="text/javascript">
         $('.ban').slick({
@@ -66,6 +92,25 @@
         });
     </script>
 
+    <script>
+        $('#accept').change(function () {
+            if ($('#accept').prop("checked")) {
+                $("#submit").removeAttr('disabled');
+                $("#submit").removeClass('disabled');
+            } else {
+                $("#submit").attr('disabled', 'disabled');
+                $("#submit").addClass('disabled');
+            }
+        });
+    </script>
 
+    @if(!empty(Session::get('query_data')) && Session::get('query_data') == 'some_data')
+        <script>
+            $(function() {
+                var url = $(this).attr('href');
+                window.open("/uploads/products/files/<?php echo $product->file; ?>");
+            });
+        </script>
+    @endif
 
 @endsection

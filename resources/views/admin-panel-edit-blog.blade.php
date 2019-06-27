@@ -102,7 +102,6 @@
                                     <div class="form-group">
                                         <label class=" form-control-label">Texto</label>
                                         <div class="input-group">
-                                            <div class="input-group-addon"><i class="fa fa-pencil"></i></div>
                                             <textarea class="form-control" name="text" required>{{ $blog->text }}</textarea>
                                         </div>
                                         <small class="form-text text-muted">Texto detallado del proyecto</small>
@@ -150,6 +149,13 @@
             browseOnZoneClick: true,
 
         });
+    </script>
+
+    <script src="{{ asset('plugins/ckeditor/ckeditor.js') }}"></script>
+    <script>
+        CKEDITOR.replace( 'adress' );
+        CKEDITOR.replace( 'text' );
+        CKEDITOR.config.width = '100%';
     </script>
 
     @include('layout/admin/validaciones')

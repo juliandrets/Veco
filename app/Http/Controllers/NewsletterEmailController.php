@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Brand;
+use App\Exports\UsersExport;
 use App\NewsletterEmail;
+use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Maatwebsite\Excel\Facades\Excel;
 
 class NewsletterEmailController extends Controller
 {
@@ -16,7 +19,7 @@ class NewsletterEmailController extends Controller
 
     public function index()
     {
-        $emails = NewsletterEmail::orderBy('id', 'desc')->paginate(50);
+        $emails = NewsletterEmail::orderBy('id', 'desc')->get();
         return view('admin-panel-newsletter-emails', [
             'emails' => $emails,
         ]);
@@ -29,14 +32,20 @@ class NewsletterEmailController extends Controller
 
     public function store(Request $request)
     {
-        $email = new NewsletterEmail([
-            'name' => $request->input('name'),
-            'email' => $request->input('email')
-        ]);
+        if(! NewsletterEmail::where('email', $request->input('email'))->first()) {
+            $email = new NewsletterEmail([
+                'name' => $request->input('name'),
+                'email' => $request->input('email')
+            ]);
 
-        $email->save();
+            $email->save();
+        }
 
-        return redirect('newsletter?event=suscribe-ok');
+        if ($request->input('email') == 'newsletter') {
+            return redirect('newsletter?event=suscribe-ok');
+        } else {
+            return Redirect::back()->with('query_data', 'some_data');
+        }
     }
 
     public function show(Brand $brand)
@@ -59,5 +68,10 @@ class NewsletterEmailController extends Controller
         $email = NewsletterEmail::find($id);
         $email->delete();
         return Redirect::back();
+    }
+
+    public function export()
+    {
+        return Excel::download(new UsersExport, 'users.xlsx');
     }
 }

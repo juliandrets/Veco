@@ -62,6 +62,7 @@ Route::get('adm', 'AdminPanelController@index')->middleware('auth', 'role:admin'
 
         // Emails
         Route::resource('adm/newsletter-emails', 'NewsletterEmailController')->middleware('auth', 'role:admin');
+        Route::get('adm/emails/export', 'NewsletterEmailController@export')->middleware('auth', 'role:admin');
         Route::get('adm/newsletter-emails/{id}/delete', 'NewsletterEmailController@destroy')->middleware('auth', 'role:admin');// Email related routes
         Route::post('adm/newsletter/mail/send/{class}/{id}', 'MailController@send')->middleware('auth', 'role:admin');
 

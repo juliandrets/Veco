@@ -1112,6 +1112,10 @@ footer {
 			font-size: 17px;
 			font-weight: 600;
 		}
+
+		img {
+			width: 100%;
+		}
 	}
 }
 
@@ -2165,3 +2169,81 @@ footer {
   }
 }
 
+#ex1 {
+	background-color: white;
+	max-width: 500px;
+	margin: 0 auto;
+
+	form {
+		margin: 0 auto;
+		padding: 50px 20px;
+
+		h2 {
+			font-size: 17px;
+		}
+
+		.inputs {
+
+			div {
+				width: 100%;
+			}
+
+			p {
+				font-weight: 400;
+				margin-bottom: 4px;
+				font-size: 15px;
+			}
+			input {
+				width: 100%;
+				border-radius: 3px;
+				padding: 10px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				border:none;
+				border:1px solid #ddd;
+			}
+		}
+
+		hr {
+			height: 1px;
+			border: none;
+			background-color: rgba(0, 0, 0, .1);
+			margin: 20px 0px 20px 0px;
+		}
+
+		.accept {
+			display: flex;
+			justify-content: space-between;
+
+			input {
+				width: 60px;
+			}
+
+			p {
+				font-size: 14px;
+				line-height: 22px;
+				font-weight: 300;
+			}
+		}
+
+		button {
+			background-color: $colorFont;
+			padding: 8px 17px 8px 17px;
+			color: white;
+			font-weight: 400;
+			border: none;
+			text-transform: uppercase;
+		}
+		button:hover {
+			background-color: $colorPrimary;
+		}
+
+		.disabled {
+			opacity: .5;
+		}
+		.disabled:hover {
+			background-color: $colorFont !important;
+		}
+	}
+}

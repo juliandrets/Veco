@@ -45,7 +45,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title">Nuevo Producto</strong>
+                                <strong class="card-title">Editar Producto</strong>
                             </div>
 
                             <br>
@@ -64,6 +64,13 @@
                             <form action="/adm/products/{{ $product->id }}/update" method="POST" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <div class="card-body card-block">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <input class="form-control-label" type="checkbox" @if($product->fixed) checked @endif  name="fixed" style="width:25px !important;" />
+                                            <label class=" form-control-label">Fijar producto</label>
+                                        </div>
+                                        <small class="form-text text-muted">El producto aparecera primero en la lista de productos. (A medida)</small>
+                                    </div>
                                     <div class="form-group">
                                         <label class=" form-control-label">Imagenes Preview</label>
 

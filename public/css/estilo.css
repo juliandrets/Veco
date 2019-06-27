@@ -810,6 +810,8 @@ footer {
     #noticia p strong {
       font-size: 17px;
       font-weight: 600; }
+    #noticia p img {
+      width: 100%; }
 
 #about {
   max-width: 1200px;
@@ -1610,5 +1612,56 @@ footer {
   40% {
     -webkit-transform: scale(1);
     transform: scale(1); } }
+#ex1 {
+  background-color: white;
+  max-width: 500px;
+  margin: 0 auto; }
+  #ex1 form {
+    margin: 0 auto;
+    padding: 50px 20px; }
+    #ex1 form h2 {
+      font-size: 17px; }
+    #ex1 form .inputs div {
+      width: 100%; }
+    #ex1 form .inputs p {
+      font-weight: 400;
+      margin-bottom: 4px;
+      font-size: 15px; }
+    #ex1 form .inputs input {
+      width: 100%;
+      border-radius: 3px;
+      padding: 10px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      border: none;
+      border: 1px solid #ddd; }
+    #ex1 form hr {
+      height: 1px;
+      border: none;
+      background-color: rgba(0, 0, 0, 0.1);
+      margin: 20px 0px 20px 0px; }
+    #ex1 form .accept {
+      display: flex;
+      justify-content: space-between; }
+      #ex1 form .accept input {
+        width: 60px; }
+      #ex1 form .accept p {
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 300; }
+    #ex1 form button {
+      background-color: #333;
+      padding: 8px 17px 8px 17px;
+      color: white;
+      font-weight: 400;
+      border: none;
+      text-transform: uppercase; }
+    #ex1 form button:hover {
+      background-color: #e3a129; }
+    #ex1 form .disabled {
+      opacity: .5; }
+    #ex1 form .disabled:hover {
+      background-color: #333 !important; }
 
 /*# sourceMappingURL=estilo.css.map */

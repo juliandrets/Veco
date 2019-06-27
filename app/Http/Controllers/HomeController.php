@@ -71,7 +71,10 @@ class HomeController extends Controller
     public function showProducts($name)
     {
         $category = ProductCategory::where('name', $name)->first();
-        $products = Product::where('category_id', $category->id)->orderBy('id', 'desc')->paginate(12);
+        $products = Product::where('category_id', $category->id)
+            ->orderBy('fixed', 'desc')
+            ->orderBy('id', 'desc')
+            ->paginate(12);
 
         return view('producto', [
             'category' => $category,
